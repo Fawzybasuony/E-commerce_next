@@ -1,0 +1,43 @@
+
+.page-add {
+	padding-top: 31px;
+	margin-bottom: 92px;
+}
+
+.page-add .page-breadcrumb {
+	padding-top: 34px;
+}
+
+.page-add .page-breadcrumb h2 {
+	color: #1e1e1e;
+	font-size: 48px;
+	font-weight: 600;
+}
+
+.page-add .page-breadcrumb h2 span {
+	color: #B0BCC2;
+}
+
+.page-add .page-breadcrumb a {
+	color: #838383;
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 600;
+	margin-right: 6px;
+	position: relative;
+}
+
+.page-add .page-breadcrumb a.active {
+	color: #1e1e1e;
+}
+
+.page-add .page-breadcrumb a:last-child:after {
+	display: none;
+}
+
+.page-add .page-breadcrumb a:after {
+	position: absolute;
+	top: 1px;
+	right: -5px;
+	content: "/";
+}

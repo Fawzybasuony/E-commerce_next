@@ -1,0 +1,53 @@
+{
+  "products": [
+    {
+      "id": "9",
+      "productImg": "./images/(1).jpg",
+      "title": "Apple Watch",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate eveniet eos rem molestiae repellendus, ducimus distinctio      perspiciatis veniam, neque iure illo eligendi. Lorem ipsum dolor sit      amet, consectetur adipisicing elit Suscipit consectetur.",
+      "price": 150
+    },
+    {
+      "id": "10",
+      "productImg": "./images/(2).jpg",
+      "title": "Apple Watch Pro",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate eveniet eos rem molestiae repellendus, ducimus distinctio      perspiciatis veniam, neque iure illo eligendi. Lorem ipsum dolor sit      amet, consectetur adipisicing elit Suscipit consectetur.",
+      "price": 220
+    },
+    {
+      "id": "11",
+      "productImg": "./images/(3).jpg",
+      "title": "xxxxxxx",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate eveniet eos rem molestiae repellendus, ducimus distinctio      perspiciatis veniam, neque iure illo eligendi. Lorem ipsum dolor sit      amet, consectetur adipisicing elit Suscipit consectetur.",
+      "price": "30000"
+    },
+    {
+      "id": "12",
+      "productImg": "./images/(4).jpg",
+      "title": "Black T-shert",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate eveniet eos rem molestiae repellendus, ducimus distinctio      perspiciatis veniam, neque iure illo eligendi. Lorem ipsum dolor sit      amet, consectetur adipisicing elit Suscipit consectetur.",
+      "price": 200
+    },
+    {
+      "id": "4db0",
+      "productImg": "images/bac.jpg",
+      "title": "Man",
+      "price": "500",
+      "description": "TSTTTTT"
+    },
+    {
+      "id": "4de0",
+      "productImg": "images/belt.webp",
+      "title": "czcz",
+      "price": "555",
+      "description": "czc"
+    },
+    {
+      "id": "cb87",
+      "productImg": "images/belt.webp",
+      "title": "fawzybb123@gmail.com",
+      "price": "44",
+      "description": "erw"
+    }
+  ]
+}
