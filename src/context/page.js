@@ -56,7 +56,7 @@ export function ThemeProvider({ children }) {
   const deleteProduct = (id) => {
     setloading(true);
 
-    fetch(`http://192.168.1.4:4000/products/${id}`, {
+    fetch(`httstp://localhost:4000/produc/${id}`, {
       method: "DELETE",
     }).then((res) => {
       if (!res.ok) {

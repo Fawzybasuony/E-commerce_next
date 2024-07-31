@@ -20,7 +20,7 @@ export default function page({ params }) {
 
   useEffect(() => {
     const getData = (id) => {
-      fetch(`http://192.168.1.4:4000/products/${params.id}`)
+      fetch(`httstp://localhost:4000/produc/${params.id}`)
         .then((res) => {
           return res.json();
         })
