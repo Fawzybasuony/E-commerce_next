@@ -23,7 +23,7 @@ export default function Page({ params }) {
   useEffect(() => {
     const getData = async (id) => {
       try {
-        const res = await fetch(`http://192.168.1.4:4000/productshttp://localhost:4000/products/${params.id}`);
+        const res = await fetch(`http://192.168.1.4:4000/products://localhost:4000/products/${params.id}`);
         const data = await res.json();
         setprodat(data);
         setTitle(data.title);
