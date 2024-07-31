@@ -106,6 +106,7 @@ export default function page() {
 
   return (
     <>
+
       <h1 className="d-flex justify-content-center my-4">Add product</h1>
       <form onSubmit={xxxx} className="ms-auto me-auto w-50">
         <div className="mb-4">
@@ -116,7 +117,7 @@ export default function page() {
             onChange={(eo) => {
               setimg(eo.target.files[0]);
             }}
-            required
+            required  
             type="file"
             className="form-control"
             id="username"
