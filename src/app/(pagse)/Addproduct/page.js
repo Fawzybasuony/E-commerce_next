@@ -88,7 +88,7 @@ export default function page() {
       description: description,
     };
 
-    const resAddProduct = await fetch("http://localhost:4000/products", {
+    const resAddProduct = await fetch("http://192.168.1.4:3000/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
