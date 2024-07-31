@@ -2,6 +2,7 @@
 .page-add {
 	padding-top: 31px;
 	margin-bottom: 92px;
+ 
 }
 
 .page-add .page-breadcrumb {
@@ -41,3 +42,17 @@
 	right: -5px;
 	content: "/";
 }
+
+.xc img {
+	width: 800px;
+	margin-right: 50px;
+}
+
+@media  (max-width: 700px) {
+	.xc img {
+		width: 350px;
+		height: 100px;
+		margin-left: 10px;
+	}
+	
+    }

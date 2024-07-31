@@ -275,3 +275,17 @@
 	cursor: pointer;
 	text-transform: uppercase;
 }
+
+.xc img {
+	width: 800px;
+	margin-right: 50px;
+}
+
+@media  (max-width: 700px) {
+	.xc img {
+		width: 350px;
+		height: 100px;
+		margin-left: 10px;
+	}
+	
+    }

@@ -17,8 +17,8 @@ export default function page() {
           <a className="active" href="#">Night Dresses</a>
         </div>
       </div>
-      <div className="col-lg-8">
-        <img src="img/add.jpg" alt='' />
+      <div className="col-lg-8 xc">
+        <img   src="img/add.jpg" alt='' />
       </div>
     </div>
   </div>
