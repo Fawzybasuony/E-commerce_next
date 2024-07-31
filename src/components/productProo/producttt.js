@@ -19,7 +19,7 @@ export default function producttt() {
     useContext(ThemeContexttt);
 
   useEffect(() => {
-    fetch("http://192.168.1.4:4000/products", { next: { revalidate: 0 } })
+    fetch("http://localhost:4000/products", { next: { revalidate: 0 } })
       .then((res) => res.json())
       .then((json) => setprodat(json));
   }, []);
