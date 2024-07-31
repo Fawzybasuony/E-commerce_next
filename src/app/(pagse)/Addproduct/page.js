@@ -88,7 +88,7 @@ export default function page() {
       description: description,
     };
 
-    const resAddProduct = await fetch("http://192.168.1.4:3000/products", {
+    const resAddProduct = await fetch("http://localhost:4000/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -106,7 +106,6 @@ export default function page() {
 
   return (
     <>
-
       <h1 className="d-flex justify-content-center my-4">Add product</h1>
       <form onSubmit={xxxx} className="ms-auto me-auto w-50">
         <div className="mb-4">
@@ -117,7 +116,7 @@ export default function page() {
             onChange={(eo) => {
               setimg(eo.target.files[0]);
             }}
-            required  
+            required
             type="file"
             className="form-control"
             id="username"
