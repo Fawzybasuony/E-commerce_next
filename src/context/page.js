@@ -69,7 +69,7 @@ export function ThemeProvider({ children }) {
       toast.success("Your account has been created successfully");
       setTimeout(() => {
         setloading(false);
-        router.push("/shop");
+        router.push("/Shop");
         setlaod(false);
       }, 1500);
       // return prodat ;

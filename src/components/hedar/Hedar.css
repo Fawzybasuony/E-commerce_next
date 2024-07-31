@@ -22,7 +22,7 @@
 .header-info {
   background: #b0bcc2;
   overflow: hidden;
-  padding: 10px 45px;
+  padding: 10px 25px;
 }
 
 .header-info .header-item {
@@ -32,6 +32,7 @@
 .header-info .header-item img {
   display: inline-block;
   margin-right: 5px;
+  
 }
 
 .header-info .header-item p {
