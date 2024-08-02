@@ -8,7 +8,7 @@ export default function page() {
  
 <section className="page-add cart-page-add">
   <div className="container">
-    <div className="row">
+    <div className="row mx-0">
       <div className="col-lg-4">
         <div className="page-breadcrumb">
           <h2>Cart<span>.</span></h2>

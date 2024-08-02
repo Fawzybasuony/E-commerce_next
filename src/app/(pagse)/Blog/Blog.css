@@ -276,16 +276,14 @@
 	text-transform: uppercase;
 }
 
-.xc img {
-	width: 800px;
-	margin-right: 50px;
+
+.xc {
+	margin-left: auto;
+	margin-top: 20px;
+	width: 85% !important;
+
 }
 
-@media  (max-width: 700px) {
-	.xc img {
-		width: 350px;
-		height: 100px;
-		margin-left: 10px;
-	}
-	
-    }
+.xc img {
+	width: 100% !important;
+}
