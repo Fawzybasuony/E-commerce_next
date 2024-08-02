@@ -23,7 +23,7 @@ export default function Page({ params }) {
   useEffect(() => {
     const getData = async (id) => {
       try {
-        const res = await fetch(`http://localhost:4000/products/${params.id}`);
+        const res = await fetch(`https://data-murex-nu.vercel.app/db.json/${params.id}`);
         const data = await res.json();
         setprodat(data);
         setTitle(data.title);
@@ -51,7 +51,7 @@ export default function Page({ params }) {
     };
 
     try {
-      const res = await fetch(`http://localhost:4000/products/${params.id}`, {
+      const res = await fetch(`https://data-murex-nu.vercel.app/db.json/${params.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

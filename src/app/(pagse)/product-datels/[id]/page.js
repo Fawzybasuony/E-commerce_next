@@ -20,7 +20,7 @@ export default function page({ params }) {
 
   useEffect(() => {
     const getData = (id) => {
-      fetch(`http://localhost:4000/products/${params.id}`)
+      fetch(`https://data-murex-nu.vercel.app/db.json/${params.id}`)
         .then((res) => {
           return res.json();
         })

@@ -88,7 +88,7 @@ export default function page() {
       description: description,
     };
 
-    const resAddProduct = await fetch("http://localhost:4000/products", {
+    const resAddProduct = await fetch("https://data-murex-nu.vercel.app/db.json", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

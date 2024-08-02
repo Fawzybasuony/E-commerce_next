@@ -56,7 +56,7 @@ export function ThemeProvider({ children }) {
   const deleteProduct = (id) => {
     setloading(true);
 
-    fetch(`http://localhost:4000/products/${id}`, {
+    fetch(`https://data-murex-nu.vercel.app/db.json/${id}`, {
       method: "DELETE",
     }).then((res) => {
       if (!res.ok) {
