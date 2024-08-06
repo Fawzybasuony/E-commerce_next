@@ -12,3 +12,4 @@
   "include": ["src", "src/app/aa/page.js"],
   "exclude": ["node_modules", "build"]
 }
+ 

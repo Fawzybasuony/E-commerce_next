@@ -123,19 +123,20 @@ export default function header() {
             )}
             {data ? (
               <>
-                <li className="nav-item  mt-1">
+                <li className="nav-item  mt-1 me-2">
                   <Link
                     href={""}
                     onClick={() => {
                       window.location.href = "/";
                     }}
-                    className={`text-body-secondary p-1`}
+                    className={`text-body-secondary  p-1 pe-3 ps-2`}
                     style={{
                       border: "solid 3px #B0BCC2",
                       borderRadius: "20px",
+                
                     }}
                   >
-                    signe Out
+                    Signe Out
                     <FontAwesomeIcon
                       style={{ width: "20px", height: "15px" }}
                       icon={faRightToBracket}

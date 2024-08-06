@@ -88,7 +88,7 @@ export default function page() {
       description: description,
     };
 
-    const resAddProduct = await fetch("https://data-murex-nu.vercel.app/db.json", {
+    const resAddProduct = await fetch("http://localhost:5000/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -96,8 +96,15 @@ export default function page() {
       body: JSON.stringify(productData),
     });
 
+    if (!resAddProduct.ok) {
+      console.error("Failed to add product");
+      toast.error("Failed to add product");
+      setloading(false);
+      return;
+    }
+
     const data = await resAddProduct.json();
-    toast.success("Product Create successfully");
+    toast.success("Product created successfully");
     setTimeout(() => {
       router.push("/Shop");
       setloading(false);

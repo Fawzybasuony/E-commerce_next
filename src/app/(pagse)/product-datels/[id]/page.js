@@ -19,17 +19,20 @@ export default function page({ params }) {
     useContext(ThemeContexttt);
 
   useEffect(() => {
-    const getData = (id) => {
-      fetch(`https://data-murex-nu.vercel.app/db.json/${params.id}`)
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          setprodat(data);
-        });
+    const getData = async (id) => {
+      try {
+        const res = await fetch(`http://localhost:5000/products/${params.id}`);
+        const data = await res.json();
+        // const product = data.products.find((item) => item.id === id);
+        setprodat(data);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      }
     };
 
-    getData(params.id);
+    if (params.id) {
+      getData(params.id);
+    }
   }, [params.id]);
 
   setTimeout(() => {

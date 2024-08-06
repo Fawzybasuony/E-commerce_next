@@ -62,7 +62,7 @@ export default function page({ params }) {
       })}
 
       <section
-        style={{ width: "200px", marginTop: "50px" }}
+        style={{ width: "200px", marginTop: "50px",marginBottom:"50px" }}
         className="summary border p-4 rounded shadow-sm container"
       >
         <h1 className="h4">Cart Summary</h1>

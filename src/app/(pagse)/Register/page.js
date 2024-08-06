@@ -10,7 +10,7 @@ export default function page() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className=" w-50 m-auto mt-5">
+      <form onSubmit={handleSubmit} className="w-50  m-auto mt-5">
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Username

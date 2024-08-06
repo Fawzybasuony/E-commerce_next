@@ -50,7 +50,7 @@ export default function page() {
               <h5>Location</h5>
               <ul>
                 <li>1525 Awesome Lane, </li>
-                <li>Los Angeles, CA</li>
+                <li>E g y p t</li>
               </ul>
             </div>
             <div className="cw-item">
@@ -73,7 +73,7 @@ export default function page() {
       <div className="map">
         <div className="row">
           <div className="col-lg-12">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26440.72384129847!2d-118.24906619231132!3d34.06719475913053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c659f50c318d%3A0xe2ffb80a9d3820ae!2sChinatown%2C%20Los%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1570213740685!5m2!1sen!2sbd" height={560} style={{border: 0}} allowFullScreen />
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110505.99180459307!2d31.301750334824895!3d30.056583046184976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa60b21beeb%3A0x79dfb296e8423bba!2z2KfZhNmC2KfZh9ix2KnYjCDZhdit2KfZgdi42Kkg2KfZhNmC2KfZh9ix2KnigKw!5e0!3m2!1sar!2seg!4v1722724027606!5m2!1sar!2seg" loading='lazy' height={560} style={{border: 0}} allowFullScreen></iframe>
           </div>
         </div>
       </div>

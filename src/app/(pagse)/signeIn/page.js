@@ -11,7 +11,7 @@ export default function Product() {
 
   return (
     <>
-      <form className=" w-50 m-auto mt-5">
+      <form className="w-50  m-auto mt-5">
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Email address

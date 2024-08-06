@@ -3,7 +3,7 @@
   margin: 0;
   list-style: none;
 }
-/* .loader {
+ .loader {
     margin-top: 100px;
     width: 48px;
     height: 48px;
@@ -35,7 +35,7 @@
       transform: rotate(360deg);
     }
   } 
-  */
+  
 
   .name {
     width: 100px;

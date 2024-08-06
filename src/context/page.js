@@ -53,27 +53,39 @@ export function ThemeProvider({ children }) {
     toast.success("Your account has been created successfully");
   };
 
-  const deleteProduct = (id) => {
+  const deleteProduct = async (id) => {
     setloading(true);
 
-    fetch(`https://data-murex-nu.vercel.app/db.json/${id}`, {
-      method: "DELETE",
-    }).then((res) => {
+    try {
+      const res = await fetch(`http://localhost:5000/products/${id}`, {
+        method: "DELETE",
+      });
+
       if (!res.ok) {
-        toast.error("Sorry, there was a problem");
-        setTimeout(() => {
-          setloading(false);
-        }, 1000);
-        return;
+        const errorMessage = `Error: ${res.status} ${res.statusText}`;
+        throw new Error(errorMessage);
       }
-      toast.success("Your account has been created successfully");
+
+      toast.success("Product has been deleted successfully");
+
+      // Update the state to remove the deleted product
+      if (Array.isArray(prodat)) {
+        setprodat(prodat.filter((product) => product.id !== id));
+      }
+
       setTimeout(() => {
         setloading(false);
         router.push("/Shop");
         setlaod(false);
       }, 1500);
-      // return prodat ;
-    });
+    } catch (error) {
+      console.error("Error deleting product:", error);
+      toast.error("Error deleting product: " + error.message);
+
+      setTimeout(() => {
+        setloading(false);
+      }, 1000);
+    }
   };
 
   const Addproduct = (item) => {

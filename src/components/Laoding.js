@@ -3,9 +3,9 @@
 export default function Laoding() {
   return (
     <>
-      {/* <center>
+      <center>
         <span className="loader "></span>
-      </center> */}
+      </center> 
     </>
   );
 }

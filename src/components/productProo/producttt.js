@@ -6,27 +6,43 @@ import ThemeContexttt from "context/page";
 import Link from "next/link";
 import { useContext, useEffect } from "react";
 import Laoding from "../Laoding";
-// async function getData() {
-// await new Promise((resolve) => setTimeout(resolve, 1000));
-//   const res = await fetch("http://localhost:4000/products", {
-//     next: { revalidate: 0 },
-//   });
-//   return res.json();
-// }
-// const prodat = await getData();
+
 export default function producttt() {
-  const { name, Addproduct, ID, setprodat, prodat, laod } =
-    useContext(ThemeContexttt);
+  const {
+    name,
+    Addproduct,
+    ID,
+    setprodat,
+    prodat,
+    laod,
+    setlaod,
+    loading,
+    setloading,
+  } = useContext(ThemeContexttt);
 
   useEffect(() => {
-    fetch("https://data-murex-nu.vercel.app/db.json", { next: { revalidate: 0 } })
-      .then((res) => res.json())
-      .then((json) => setprodat(json));
+    setloading(true);
+    fetch("http://localhost:5000/products", {
+      next: { revalidate: 0 },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setprodat(data);
+        setloading(false); 
+       
+
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setloading(false);
+      });
+     
+      
   }, []);
 
   return (
     <>
-      {laod ? (
+      {loading ? (
         <Laoding />
       ) : (
         <>
@@ -74,7 +90,7 @@ export default function producttt() {
                                 className="card-title  me-auto"
                                 style={{ height: "30px" }}
                               >
-                                {item.title.slice(0, 15)}
+                                {item.title}
                               </h5>
 
                               <p
@@ -82,6 +98,7 @@ export default function producttt() {
                                 style={{ height: "30px" }}
                               >
                                 {item.description.slice(0, 30)} . . .
+                                {/* .slice(0, 30) .slice(0, 15)*/}
                               </p>
 
                               {ID.includes(item.id) ? (

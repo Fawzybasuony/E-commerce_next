@@ -17,13 +17,16 @@ export default function Page({ params }) {
 
   const router = useRouter();
 
-  const { setloading, prodat, setprodat, laod, setlaod,loading } =
+  const { setloading, prodat, setprodat, laod, setlaod, loading } =
     useContext(ThemeContexttt);
 
   useEffect(() => {
     const getData = async (id) => {
       try {
-        const res = await fetch(`https://data-murex-nu.vercel.app/db.json/${params.id}`);
+        const res = await fetch(`http://localhost:5000/products/${params.id}`);
+        if (!res.ok) {
+          throw new Error("Product not found");
+        }
         const data = await res.json();
         setprodat(data);
         setTitle(data.title);
@@ -31,7 +34,7 @@ export default function Page({ params }) {
         setDescription(data.description);
         setImg(data.img);
       } catch (error) {
-        console.error("Error fetching product:", error);
+        console.error("Error fetching product:");
       }
     };
     if (params.id) {
@@ -51,7 +54,7 @@ export default function Page({ params }) {
     };
 
     try {
-      const res = await fetch(`https://data-murex-nu.vercel.app/db.json/${params.id}`, {
+      const res = await fetch(`http://localhost:5000/products/${params.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -60,25 +63,21 @@ export default function Page({ params }) {
       });
 
       if (!res.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error("Failed to update product.");
       }
 
       const data = await res.json();
-      setprodat(data);
-      toast.success("Product updated successfully");
+      toast.success("Product has been deleted successfully");
       setTimeout(() => {
-        router.push("/");
         setloading(false);
-      }, 1000);
+        router.push("/Shop");
+      }, 500);
     } catch (error) {
-      console.error("Error updating product:", error);
-      toast.error("Error updating product: " + error.message);
+      console.error("Error updating product:");
     }
   };
 
-  setTimeout(() => {
-    setlaod(false);
-  }, 500);
+ 
 
   return (
     <>
