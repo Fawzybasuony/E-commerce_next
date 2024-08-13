@@ -23,7 +23,7 @@ export default function Page({ params }) {
   useEffect(() => {
     const getData = async (id) => {
       try {
-        const res = await fetch(`http://localhost:5000/products/${params.id}`);
+        const res = await fetch(`https://product-simpledashboard-nodejs.onrender.com/products/${params.id}`);
         if (!res.ok) {
           throw new Error("Product not found");
         }
@@ -54,7 +54,7 @@ export default function Page({ params }) {
     };
 
     try {
-      const res = await fetch(`http://localhost:5000/products/${params.id}`, {
+      const res = await fetch(`https://product-simpledashboard-nodejs.onrender.com/products/${params.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

@@ -31,6 +31,7 @@ export default function page() {
   const router = useRouter();
 
   // jsone serverطريقه تانيه لاضافه  ف
+
   // const xxxx = async (eo) => {
   //   eo.preventDefault();
 
@@ -65,52 +66,115 @@ export default function page() {
   //   router.push('/');
   // };
 
+
+// نننننننننننننننننننننننننننننننننننننننننننننننننننننننننننننن
+
+  // const xxxx = async (eo) => {
+  //   eo.preventDefault();
+  //   setloading(true);
+
+  //   const toBase64 = (file) =>
+  //     new Promise((resolve, reject) => {
+  //       const reader = new FileReader();
+  //       reader.readAsDataURL(file);
+  //       reader.onload = () => resolve(reader.result);
+  //       reader.onerror = (error) => reject(error);
+  //     });
+
+  //   // مسار الصورة
+  //   const imagePath = `images/${img.name}`; // استبدل هذا بالمسار الفعلي للصورة على الخادم
+
+  //   // إرسال البيانات إلى json-server
+  //   const productData = {
+  //     productImg: imagePath,
+  //     title: title,
+  //     price: price,
+  //     description: description,
+  //   };
+
+  //   const resAddProduct = await fetch("https://product-simpledashboard-nodejs.onrender.com/products", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(productData),
+  //   });
+
+  //   if (!resAddProduct.ok) {
+  //     console.error("Failed to add product");
+  //     toast.error("Failed to add product");
+  //     setloading(false);
+  //     return;
+  //   }
+
+  //   const data = await resAddProduct.json();
+  //   toast.success("Product created successfully");
+  //   setTimeout(() => {
+  //     router.push("/Shop");
+  //     setloading(false);
+  //   }, 1000);
+  // };
+
+ 
   const xxxx = async (eo) => {
     eo.preventDefault();
     setloading(true);
-
-    const toBase64 = (file) =>
-      new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = (error) => reject(error);
+  
+    try {
+      if (!img) {
+        throw new Error("Image file is missing");
+      }
+  
+      const toBase64 = (file) =>
+        new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = (error) => reject(error);
+        });
+  
+      const imagePath = `images/${img.name}`;
+  
+      const productData = {
+        mainImage: imagePath,
+        title: title ? title : "Default Title",  // تأكد من وجود قيمة
+        price: price ? price : 0,  // تأكد من وجود قيمة
+        description: description ? description : "Default Description", // تأكد من وجود قيمة
+      };
+  
+      const resAddProduct = await fetch("https://product-simpledashboard-nodejs.onrender.com/products", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(productData),
       });
-
-    // مسار الصورة
-    const imagePath = `images/${img.name}`; // استبدل هذا بالمسار الفعلي للصورة على الخادم
-
-    // إرسال البيانات إلى json-server
-    const productData = {
-      productImg: imagePath,
-      title: title,
-      price: price,
-      description: description,
-    };
-
-    const resAddProduct = await fetch("http://localhost:5000/products", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(productData),
-    });
-
-    if (!resAddProduct.ok) {
-      console.error("Failed to add product");
-      toast.error("Failed to add product");
+  
+      if (!resAddProduct.ok) {
+        const errorData = await resAddProduct.json();
+        console.error("Failed to add product", errorData);
+        toast.error(`Failed to add product: ${errorData.message}`);
+        setloading(false);
+        return;
+      }
+  
+      const data = await resAddProduct.json();
+      console.log("Product added:", data);
+      toast.success("Product created successfully");
+      setTimeout(() => {
+        router.push("/Shop");
+        setloading(false);
+      }, 1000);
+    } catch (error) {
+      console.error("Error adding product:", error);
+      toast.error("An error occurred while adding the product");
       setloading(false);
-      return;
     }
-
-    const data = await resAddProduct.json();
-    toast.success("Product created successfully");
-    setTimeout(() => {
-      router.push("/Shop");
-      setloading(false);
-    }, 1000);
   };
+  
 
+  
+  
   return (
     <>
       <h1 className="d-flex justify-content-center my-4">Add product</h1>
@@ -152,7 +216,7 @@ export default function page() {
           </label>
           <input
             onChange={(eo) => {
-              setPrice(`${eo.target.value}`);
+              setPrice(eo.target.value);
             }}
             required
             type="text"

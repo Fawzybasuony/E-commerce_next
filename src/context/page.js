@@ -57,7 +57,7 @@ export function ThemeProvider({ children }) {
     setloading(true);
 
     try {
-      const res = await fetch(`http://localhost:5000/products/${id}`, {
+      const res = await fetch(`https://product-simpledashboard-nodejs.onrender.com/products/${id}`, {
         method: "DELETE",
       });
 

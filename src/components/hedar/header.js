@@ -42,7 +42,7 @@ export default function header() {
               </Link>
             </div>
 
-            {data ? (
+            {!data ? (
               <>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 mt-2">
                   <li className="nav-item"></li>

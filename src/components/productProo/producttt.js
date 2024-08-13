@@ -22,13 +22,14 @@ export default function producttt() {
 
   useEffect(() => {
     setloading(true);
-    fetch("http://localhost:5000/products", {
+    fetch("https://product-simpledashboard-nodejs.onrender.com/products", {
       next: { revalidate: 0 },
     })
       .then((response) => response.json())
       .then((data) => {
         setprodat(data);
         setloading(false); 
+       console.log(data);
        
 
       })
@@ -46,7 +47,7 @@ export default function producttt() {
         <Laoding />
       ) : (
         <>
-          {!name ? (
+          {name ? (
             <h1>
               Please add the account
               <FontAwesomeIcon
@@ -63,7 +64,7 @@ export default function producttt() {
                       return (
                         <div
                           key={index}
-                          title={item.title}
+                          title={item.name}
                           className="col-sm-6 col-md-4 col-lg-3 mb-4"
                         >
                           <div className="card h-100">
@@ -71,9 +72,9 @@ export default function producttt() {
                               {prodat && (
                                 <img
                                   src={
-                                    item.productImg
-                                      ? `/${item.productImg}`
-                                      : `/${item.img}`
+                                    item.mainImage
+                                      // ? `/${item.productImg}`
+                                      // : `/${item.img}`
                                   }
                                   className="card-img-top"
                                   alt="Product Image"
@@ -90,7 +91,7 @@ export default function producttt() {
                                 className="card-title  me-auto"
                                 style={{ height: "30px" }}
                               >
-                                {item.title}
+                                {item.name}
                               </h5>
 
                               <p

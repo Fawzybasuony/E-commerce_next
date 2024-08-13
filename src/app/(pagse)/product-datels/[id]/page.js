@@ -21,9 +21,9 @@ export default function page({ params }) {
   useEffect(() => {
     const getData = async (id) => {
       try {
-        const res = await fetch(`http://localhost:5000/products/${params.id}`);
+        const res = await fetch(`https://product-simpledashboard-nodejs.onrender.com/products/${params.id}`);
         const data = await res.json();
-        // const product = data.products.find((item) => item.id === id);
+      //  const product = data.products.find((item) => item.id === id);
         setprodat(data);
       } catch (error) {
         console.error("Error fetching product:", error);
