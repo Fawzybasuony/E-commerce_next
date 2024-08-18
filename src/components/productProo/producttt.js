@@ -31,7 +31,7 @@ export default function Producttt() {
         <Laoding />
       ) : (
         <>
-          {name ? (
+          {!name ? (
             <h1>
               Please add the account
               <FontAwesomeIcon
