@@ -4,7 +4,6 @@ import ThemeContexttt from "context/page";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import Image from "next/image.js";
 import Laoding from "components/Laoding";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
@@ -20,23 +19,55 @@ export default function Page({ params }) {
   const { setloading, prodat, setprodat, laod, setlaod, loading } =
     useContext(ThemeContexttt);
 
+  // useEffect(() => {
+  //   const getData = async (id) => {
+  //     try {
+  //       const res = await fetch(
+  //         `https://product-simpledashboard-nodejs.onrender.com/products/${params.id}`
+  //       );
+  //       if (!res.ok) {
+  //         throw new Error("Product not found");
+  //       }
+  //       const data = await res.json();
+  //       // console.log("Fetched product data:", data); // عرض البيانات في الكونسول للتأكد
+
+  //       setprodat(data);
+  //       setTitle(data.name);
+  //       setPrice(data.price);
+  //       setDescription(data.description);
+  //       setImg(data.mainImage.secure_url); // تأكد من `mainImage` و `secure_url`
+  //     } catch (error) {
+  //       console.error("Error fetching product:", error);
+  //     }
+  //   };
+
+  //   if (params.id) {
+  //     getData(params.id);
+  //   }
+  // }, [params.id]);
+
   useEffect(() => {
     const getData = async (id) => {
       try {
-        const res = await fetch(`https://product-simpledashboard-nodejs.onrender.com/products/${params.id}`);
+        const res = await fetch(
+          `https://product-simpledashboard-nodejs.onrender.com/products/${params.id}`
+        );
         if (!res.ok) {
           throw new Error("Product not found");
         }
         const data = await res.json();
-        setprodat(data);
-        setTitle(data.title);
-        setPrice(data.price);
-        setDescription(data.description);
-        setImg(data.img);
+        // Check if mainImage and secure_url exist
+        if (data.mainImage && data.mainImage.secure_url) {
+          setprodat(data);
+          setImg(data.mainImage.secure_url); // Assuming setImg is your state for image URL
+        } else {
+          console.error("mainImage or secure_url is missing");
+        }
       } catch (error) {
-        console.error("Error fetching product:");
+        console.error("Error fetching product:", error);
       }
     };
+
     if (params.id) {
       getData(params.id);
     }
@@ -47,20 +78,23 @@ export default function Page({ params }) {
     setloading(true);
     const updatedProduct = {
       ...prodat,
-      title,
+      name: title,
       price,
       description,
       img,
     };
 
     try {
-      const res = await fetch(`https://product-simpledashboard-nodejs.onrender.com/products/${params.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedProduct),
-      });
+      const res = await fetch(
+        `https://product-simpledashboard-nodejs.onrender.com/products/${params.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedProduct),
+        }
+      );
 
       if (!res.ok) {
         throw new Error("Failed to update product.");
@@ -77,7 +111,10 @@ export default function Page({ params }) {
     }
   };
 
- 
+  const imageUrl =
+    prodat.mainImage && prodat.mainImage.secure_url
+      ? prodat.mainImage.secure_url
+      : "default-image-url";
 
   return (
     <>
@@ -85,16 +122,11 @@ export default function Page({ params }) {
         <Laoding />
       ) : (
         <form onSubmit={handleEdit} className="my-5 w-75 m-auto">
-          {prodat && (
-            <Image
-              priority
-              width={200}
-              height={200}
-              quality={100}
-              alt="Product Image"
-              src={!`/${img}` ? `/${prodat.img}` : `/${prodat.productImg}`}
-            />
+          {prodat && imageUrl && (
+            <img src={imageUrl} className="w-25 h-25" alt="Product Image" />
           )}
+          {!imageUrl && <p>No image available</p>}
+
           <div className="mb-3 mt-4">
             <label htmlFor="title" className="form-label">
               Title
@@ -103,7 +135,7 @@ export default function Page({ params }) {
               id="title"
               type="text"
               className="form-control"
-              defaultValue={prodat.title}
+              defaultValue={prodat.name}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>

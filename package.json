@@ -8,15 +8,15 @@
     "start": "next start",
     "lint": "next lint"
   },
-
-  
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "axios": "^1.7.4",
     "bootstrap": "^5.3.3",
     "cloudinary": "^2.2.0",
+    "formik": "^2.4.6",
     "json-server": "^1.0.0-beta.1",
     "multer": "^1.4.5-lts.1",
     "next": "14.2.5",
@@ -24,7 +24,7 @@
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18",
     "react-toastify": "^10.0.5",
-    "swiper": "^11.1.4"
+    "swiper": "^11.1.4",
+    "yup": "^1.4.0"
   }
- 
 }

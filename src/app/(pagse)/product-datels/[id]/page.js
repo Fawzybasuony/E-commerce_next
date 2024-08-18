@@ -2,10 +2,12 @@
 
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Footart from "components/Footar/Footart";
 import Laoding from "components/Laoding";
 import ThemeContexttt from "context/page";
-import Image from "next/image.js";
+
 import Link from "next/link";
+
 import { useContext, useEffect } from "react";
 
 // async function getData(id) {
@@ -15,25 +17,54 @@ import { useContext, useEffect } from "react";
 // const objData = await getData(params.id);
 
 export default function page({ params }) {
-  const { loading, prodat, setprodat, deleteProduct, laod, setlaod } =
-    useContext(ThemeContexttt);
+  const {
+    loading,
+    setloading,
+    prodat,
+    setprodat,
+    deleteProduct,
+    laod,
+    setlaod,
+  } = useContext(ThemeContexttt);
 
   useEffect(() => {
-    const getData = async (id) => {
-      try {
-        const res = await fetch(`https://product-simpledashboard-nodejs.onrender.com/products/${params.id}`);
-        const data = await res.json();
-      //  const product = data.products.find((item) => item.id === id);
-        setprodat(data);
-      } catch (error) {
-        console.error("Error fetching product:", error);
-      }
-    };
-
-    if (params.id) {
-      getData(params.id);
-    }
+    fetch(
+      `https://product-simpledashboard-nodejs.onrender.com/products/${params.id}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setprodat(data.product);
+        setloading(false);
+      });
   }, [params.id]);
+
+  // useEffect(() => {
+  //   const getData = async (id) => {
+  //     try {
+  //       const res = await fetch(`https://product-simpledashboard-nodejs.onrender.com/products`);
+  //       const data = await res.json();
+  //       const product = data.products.find((item) => item.id === id);
+  //       setprodat( product);
+  //       console.log(data)
+  //     } catch (error) {
+  //       console.error("Error fetching product:", error);
+  //     }
+  //   };
+
+  //   if (params.id) {
+  //     getData(params.id);
+  //   }
+  // }, [params.id]);
+  //  useEffect(() => {
+  //     const getData = async (id) => {
+  //     fetch(`https://product-simpledashboard-nodejs.onrender.com/products/${params.id}`)
+  //       .then((res) => res.json())
+  //       .then((prodact) => {
+  //         setprodat(prodact);
+  //       });
+  //     }
+  //     getData(params.id)
+  //     }, [params.id]);
 
   setTimeout(() => {
     setlaod(false);
@@ -50,13 +81,11 @@ export default function page({ params }) {
         >
           <div className="row align-items-center">
             <div className="col-md-6 text-center">
-              {prodat && prodat.productImg ? (
-                <Image
-                  src={`/${prodat.productImg}`}
-                  alt="Product Image"
-                  width={200}
-                  height={200}
-                  priority
+              {prodat.mainImage ? (
+                <img
+                  src={prodat.mainImage.secure_url}
+                  className="w-50 h-50"
+                  alt="."
                 />
               ) : (
                 <p>No image available</p>
@@ -65,10 +94,24 @@ export default function page({ params }) {
             <div className="col-md-6">
               <div className="product-details">
                 <br />
-                <h2>{prodat.title}</h2>
-                <p className="price text-danger fw-bold">${prodat.price}</p>
-                <p className="description">{prodat.description}</p>
+                {prodat ? (
+                  <>
+                    <h2>{prodat.name}</h2>
+                    <div className="d-flex justify-content-start align-items-center mb-2">
+                      <p className="price text-muted fw-bold pe-2 text-decoration-line-through mb-0">
+                        ${prodat.price}
+                      </p>
+                      <span className="badge bg-success me-2">Discount</span>
+                      <p className="price text-danger fw-bold mb-0">
+                        ${prodat.discount}
+                      </p>
+                    </div>
 
+                    <p className="description">{prodat.description}</p>
+                  </>
+                ) : (
+                  "xxxx"
+                )}
                 {loading ? (
                   <div
                     style={{ width: "1.5rem", height: "1.5rem" }}
@@ -80,7 +123,7 @@ export default function page({ params }) {
                 ) : (
                   <button
                     onClick={() => {
-                      deleteProduct(prodat.id);
+                      deleteProduct(prodat._id);
                     }}
                     type="button"
                     className="btn btn-danger"
@@ -90,7 +133,7 @@ export default function page({ params }) {
                 )}
 
                 <Link
-                  href={`/Updete/${prodat.id}`}
+                  href={`/Updete/${prodat._id}`}
                   type="button"
                   className="btn btn-primary ms-3"
                 >
@@ -101,6 +144,7 @@ export default function page({ params }) {
           </div>
         </div>
       )}
+      <Footart />
     </>
   );
 }

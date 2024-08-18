@@ -7,38 +7,22 @@ import Link from "next/link";
 import { useContext, useEffect } from "react";
 import Laoding from "../Laoding";
 
-export default function producttt() {
-  const {
-    name,
-    Addproduct,
-    ID,
-    setprodat,
-    prodat,
-    laod,
-    setlaod,
-    loading,
-    setloading,
-  } = useContext(ThemeContexttt);
+export default function Producttt() {
+  const { name, Addproduct, ID, setprodat, prodat, loading, setloading } =
+    useContext(ThemeContexttt);
 
   useEffect(() => {
     setloading(true);
-    fetch("https://product-simpledashboard-nodejs.onrender.com/products", {
-      next: { revalidate: 0 },
-    })
-      .then((response) => response.json())
+    fetch("https://product-simpledashboard-nodejs.onrender.com/products")
+      .then((res) => res.json())
       .then((data) => {
-        setprodat(data);
-        setloading(false); 
-       console.log(data);
-       
-
+        setloading(false);
+        setprodat(data.products);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
         setloading(false);
       });
-     
-      
   }, []);
 
   return (
@@ -57,30 +41,24 @@ export default function producttt() {
             </h1>
           ) : (
             <>
-              {prodat && prodat.length > 0 && (
+              {prodat && prodat.length > 0 ? (
                 <div className="container pro">
                   <div className="row">
                     {prodat.map((item, index) => {
                       return (
                         <div
-                          key={index}
-                          title={item.name}
+                          key={item._id}
+                          // title={item.name}
                           className="col-sm-6 col-md-4 col-lg-3 mb-4"
                         >
                           <div className="card h-100">
-                            <Link href={`/product-datels/${item.id}`}>
-                              {prodat && (
-                                <img
-                                  src={
-                                    item.mainImage
-                                      // ? `/${item.productImg}`
-                                      // : `/${item.img}`
-                                  }
-                                  className="card-img-top"
-                                  alt="Product Image"
-                                  style={{ height: "200px", width: "100%" }}
-                                />
-                              )}
+                            <Link href={`/product-datels/${item._id}`}>
+                              <img
+                                src={item.mainImage.secure_url}
+                                className="card-img-top"
+                                alt={item.name || "Product Image"}
+                                style={{ height: "200px", width: "100%" }}
+                              />
                             </Link>
                             <div className="card-body d-flex flex-column">
                               <h4 className="card-title me-auto text-danger">
@@ -91,18 +69,16 @@ export default function producttt() {
                                 className="card-title  me-auto"
                                 style={{ height: "30px" }}
                               >
-                                {item.name}
+                                {item.name.slice(0, 10)}...
                               </h5>
 
                               <p
                                 className="me-5 mb-4"
                                 style={{ height: "30px" }}
                               >
-                                {item.description.slice(0, 30)} . . .
-                                {/* .slice(0, 30) .slice(0, 15)*/}
+                                {item.description.slice(0, 30)}...
                               </p>
-
-                              {ID.includes(item.id) ? (
+                              {ID.includes(item._id) ? (
                                 <button className="btn btn-danger">
                                   Added
                                 </button>
@@ -124,6 +100,8 @@ export default function producttt() {
                     })}
                   </div>
                 </div>
+              ) : (
+                <h2>No products found.</h2>
               )}
             </>
           )}

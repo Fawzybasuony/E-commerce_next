@@ -1,165 +1,312 @@
+// "use client";
+
+// import ThemeContexttt from "context/page";
+// import { useContext, useState, useEffect } from "react";
+// import { toast } from "react-toastify";
+
+// export default function page() {
+//   const { setloading, seterror, error, loading } = useContext(ThemeContexttt);
+
+//   const [img, setImg] = useState(null);
+//   const [title, setTitle] = useState("");
+//   const [price, setPrice] = useState("");
+//   const [description, setdescription] = useState("");
+
+//   // const uploadImageToCloudinary = async (img) => {
+//   //   if (!img) {
+//   //     throw new Error("No image provided");
+//   //   }
+
+//   //   const formData = new FormData();
+//   //   formData.append("file", img);
+//   //   formData.append("upload_preset", "FAWZYYY");
+
+//   //   const res = await fetch(
+//   //     "https://api.cloudinary.com/v1_1/dn1lcimr5/image/upload",
+//   //     {
+//   //       method: "POST",
+//   //       body: formData,
+//   //     }
+//   //   );
+
+//   //   if (!res.ok) {
+//   //     const errorData = await res.json();
+//   //     console.log("Upload Error:", errorData);
+//   //     throw new Error(`Failed to upload image: ${errorData.error.message}`);
+//   //   }
+
+//   //   const data = await res.json();
+//   //   return data.secure_url;
+//   // };
+
+//   // const handleSubmit = async (eo) => {
+//   //   eo.preventDefault();
+//   //   setloading(true);
+//   //   seterror(null);
+
+//   //   if (!title || !price || !description) {
+//   //     seterror("All input must be filled");
+//   //     setloading(false);
+//   //     return;
+//   //   }
+
+//   //   try {
+//   //     const imageUrl = await uploadImageToCloudinary(img);
+
+//   //     const formData = {
+//   //       mainImage: imageUrl,
+//   //       title: title,
+//   //       price: price,
+//   //       description: description,
+//   //     };
+
+//   //     console.log(formData);
+
+//   //     const resAddProduct = await fetch(
+//   //       "https://product-simpledashboard-nodejs.onrender.com/products",
+//   //       {
+//   //         method: "POST",
+//   //         headers: {
+//   //           "Content-Type": "application/json",
+//   //         },
+//   //         body: JSON.stringify(formData),
+//   //       }
+//   //     );
+
+//   //     const data = await resAddProduct.json();
+
+//   //     if (resAddProduct.ok) {
+//   //       eo.target.reset();
+//   //       toast.success(data.message);
+//   //     } else {
+//   //       setloading(false);
+//   //       seterror("Failed to add Product, Please try again");
+//   //     }
+//   //   } catch (error) {
+//   //     setloading(false);
+//   //     seterror("Failed to upload image, Please try again");
+//   //   }
+
+//   //   setloading(false);
+//   // };
+
+//   const handleSubmit = async (eo) => {
+//     eo.preventDefault();
+//     setloading(true);
+//     seterror(null);
+
+//     if (!title || !price || !description) {
+//       seterror("All input must be filled");
+//       setloading(false);
+//       return;
+//     }
+
+//     try {
+//       const imageUrl = await uploadImageToCloudinary(img);
+
+//       const formData = {
+//         mainImage: imageUrl,
+//         name: title,
+//         price: price,
+//         description: description,
+//       };
+
+//       console.log("Form data:", formData);
+
+//       const resAddProduct = await fetch("https://product-simpledashboard-nodejs.onrender.com/products", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(formData),
+//       });
+
+//       const data = await resAddProduct.json();
+//       console.log("Server response:", data);
+
+//       if (resAddProduct.ok) {
+//         eo.target.reset();
+//         toast.success(data.message);
+//       } else {
+//         setloading(false);
+//         seterror("Failed to add Product, Please try again");
+//       }
+
+//     } catch (error) {
+//       setloading(false);
+//       seterror(`Error: ${error.message}`);
+//     }
+
+//     setloading(false);
+//   };
+
+//   const uploadImageToCloudinary = async (img) => {
+//     if (!img) {
+//       throw new Error("No image provided");
+//     }
+
+//     const formData = new FormData();
+//     formData.append("file", img);
+//     formData.append("upload_preset", "FAWZYYY"); // Ensure this is correct
+
+//     const res = await fetch("https://api.cloudinary.com/v1_1/dn1lcimr5/image/upload", {
+//       method: "POST",
+//       body: formData,
+//     });
+
+//     if (!res.ok) {
+//       const errorData = await res.json();
+//       console.log("Upload Error:", errorData);
+//       throw new Error(`Failed to upload image: ${errorData.error.message}`);
+//     }
+
+//     const data = await res.json();
+//     return data.secure_url;
+//   };
+
+//   return (
+//     <>
+//       <h1 className="d-flex justify-content-center my-4">Add product</h1>
+//       <form onSubmit={handleSubmit} className="ms-auto me-auto w-50">
+//         <div className="mb-4">
+//           <label htmlFor="username" className="form-label">
+//             Product Image :
+//           </label>
+//           <input
+//             onChange={(eo) => {
+//               setImg(eo.target.files[0]);
+//             }}
+//             required
+//             type="file"
+//             className="form-control"
+//             id="username"
+//             aria-describedby="emailHelp"
+//           />
+//         </div>
+
+//         <div className="mb-3">
+//           <label htmlFor="exampleInputEmail1" className="form-label">
+//             Title
+//           </label>
+//           <input
+//             onChange={(eo) => {
+//               setTitle(eo.target.value);
+//             }}
+//             required
+//             type="text"
+//             className="form-control"
+//             id="exampleInputEmail1"
+//             aria-describedby="emailHelp"
+//           />
+//         </div>
+//         <div className="mb-3">
+//           <label htmlFor="exampleInputPassword1" className="form-label">
+//             price
+//           </label>
+//           <input
+//             onChange={(eo) => {
+//               setPrice(eo.target.value);
+//             }}
+//             required
+//             type="text"
+//             className="form-control"
+//             id="exampleInputPassword1"
+//           />
+//         </div>
+
+//         <div className="mb-3">
+//           <label htmlFor="description" className="form-label">
+//             Description
+//           </label>
+//           <textarea
+//             id="description"
+//             className="form-control"
+//             onChange={(eo) => {
+//               setdescription(eo.target.value);
+//             }}
+//           />
+//         </div>
+
+//         {loading ? (
+//           <div
+//             style={{ width: "1.5rem", height: "1.5rem" }}
+//             className="spinner-border"
+//             role="status"
+//           >
+//             <span className="visually-hidden">Loading...</span>
+//           </div>
+//         ) : (
+//           <button type="submit" className="btn btn-primary">
+//             Create product
+//           </button>
+//         )}
+//       </form>
+//     </>
+//   );
+// }
+// function uploadImageToCloudinary(img) {
+//   throw new Error("Function not implemented.");
+// }
+
 "use client";
 
-import ThemeContexttt from "context/page";
+import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
-import { useContext, useState } from "react";
 import { toast } from "react-toastify";
+import ThemeContexttt from "context/page";
+import Footart from "components/Footar/Footart";
 
 export default function page() {
-  const {
-    setname,
-    setemail,
-    setpassword,
-    setloading,
-    seterror,
-    error,
-    loading,
-    name,
-    email,
-    password,
-    data,
-    setdata,
-    prodat,
-    setprodat,
-    deleteProduct,
-  } = useContext(ThemeContexttt);
+  const { setloading, loading } = useContext(ThemeContexttt);
+  const [img, setImg] = useState(null);
+  const [title, setTitle] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [discount, setDiscount] = useState("");
+  const [error, setError] = useState("");
 
-  const [img, setimg] = useState(null);
-  const [title, setTitle] = useState(null);
-  const [price, setPrice] = useState(null);
-  const [description, setdescription] = useState(null);
   const router = useRouter();
 
-  // jsone serverطريقه تانيه لاضافه  ف
+  const handleFileChange = (e) => {
+    setImg(e.target.files[0]);
+  };
 
-  // const xxxx = async (eo) => {
-  //   eo.preventDefault();
-
-  //   // تحويل الصورة إلى base64 string
-  //   const toBase64 = (file) => new Promise((resolve, reject) => {
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     reader.onload = () => resolve(reader.result);
-  //     reader.onerror = error => reject(error);
-  //   });
-
-  //   const imgBase64 = await toBase64(img);
-
-  //   // إرسال البيانات إلى json-server
-  //   const productData = {
-  //     productImg: imgBase64,
-  //     title: title,
-  //     price: price,
-  //     description: description,
-  //   };
-
-  //   const resAddProduct = await fetch("http://localhost:4000/products", {
-  //     method: "POST",
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(productData),
-  //   });
-
-  //   const data = await resAddProduct.json();
-  //   console.log(data);
-  //   router.push('/');
-  // };
-
-
-// نننننننننننننننننننننننننننننننننننننننننننننننننننننننننننننن
-
-  // const xxxx = async (eo) => {
-  //   eo.preventDefault();
-  //   setloading(true);
-
-  //   const toBase64 = (file) =>
-  //     new Promise((resolve, reject) => {
-  //       const reader = new FileReader();
-  //       reader.readAsDataURL(file);
-  //       reader.onload = () => resolve(reader.result);
-  //       reader.onerror = (error) => reject(error);
-  //     });
-
-  //   // مسار الصورة
-  //   const imagePath = `images/${img.name}`; // استبدل هذا بالمسار الفعلي للصورة على الخادم
-
-  //   // إرسال البيانات إلى json-server
-  //   const productData = {
-  //     productImg: imagePath,
-  //     title: title,
-  //     price: price,
-  //     description: description,
-  //   };
-
-  //   const resAddProduct = await fetch("https://product-simpledashboard-nodejs.onrender.com/products", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(productData),
-  //   });
-
-  //   if (!resAddProduct.ok) {
-  //     console.error("Failed to add product");
-  //     toast.error("Failed to add product");
-  //     setloading(false);
-  //     return;
-  //   }
-
-  //   const data = await resAddProduct.json();
-  //   toast.success("Product created successfully");
-  //   setTimeout(() => {
-  //     router.push("/Shop");
-  //     setloading(false);
-  //   }, 1000);
-  // };
-
- 
-  const xxxx = async (eo) => {
+  const handleAddProduct = async (eo) => {
     eo.preventDefault();
     setloading(true);
-  
+
     try {
       if (!img) {
         throw new Error("Image file is missing");
       }
-  
-      const toBase64 = (file) =>
-        new Promise((resolve, reject) => {
-          const reader = new FileReader();
-          reader.readAsDataURL(file);
-          reader.onload = () => resolve(reader.result);
-          reader.onerror = (error) => reject(error);
-        });
-  
-      const imagePath = `images/${img.name}`;
-  
-      const productData = {
-        mainImage: imagePath,
-        title: title ? title : "Default Title",  // تأكد من وجود قيمة
-        price: price ? price : 0,  // تأكد من وجود قيمة
-        description: description ? description : "Default Description", // تأكد من وجود قيمة
-      };
-  
-      const resAddProduct = await fetch("https://product-simpledashboard-nodejs.onrender.com/products", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(productData),
-      });
-  
-      if (!resAddProduct.ok) {
-        const errorData = await resAddProduct.json();
-        console.error("Failed to add product", errorData);
-        toast.error(`Failed to add product: ${errorData.message}`);
+
+      const formData = new FormData();
+      formData.append("mainImage", img);
+      formData.append("name", title || "Default Title");
+      // @ts-ignore
+      formData.append("price", price || 0);
+      formData.append("description", description || "Default Description");
+      // @ts-ignore
+      formData.append("discount", discount || 0);
+      
+      const resAddProduct = await fetch(
+        "https://product-simpledashboard-nodejs.onrender.com/products",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const data = await resAddProduct.json();
+
+      if (data.message !== "success") {
+        console.error("Failed to add product", data.Error);
+        setError(data.Error);
+        toast.error(`Failed to add product: ${data.message}`);
         setloading(false);
         return;
       }
-  
-      const data = await resAddProduct.json();
-      console.log("Product added:", data);
+
       toast.success("Product created successfully");
       setTimeout(() => {
         router.push("/Shop");
@@ -171,87 +318,102 @@ export default function page() {
       setloading(false);
     }
   };
-  
 
-  
-  
   return (
     <>
-      <h1 className="d-flex justify-content-center my-4">Add product</h1>
-      <form onSubmit={xxxx} className="ms-auto me-auto w-50">
-        <div className="mb-4">
-          <label htmlFor="username" className="form-label">
-            Product Image :
-          </label>
-          <input
-            onChange={(eo) => {
-              setimg(eo.target.files[0]);
-            }}
-            required
-            type="file"
-            className="form-control"
-            id="username"
-            aria-describedby="emailHelp"
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
-            Title
-          </label>
-          <input
-            onChange={(eo) => {
-              setTitle(eo.target.value);
-            }}
-            required
-            type="text"
-            className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
-            price
-          </label>
-          <input
-            onChange={(eo) => {
-              setPrice(eo.target.value);
-            }}
-            required
-            type="text"
-            className="form-control"
-            id="exampleInputPassword1"
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="description" className="form-label">
-            Description
-          </label>
-          <textarea
-            id="description"
-            className="form-control"
-            onChange={(eo) => {
-              setdescription(eo.target.value);
-            }}
-          />
-        </div>
-
-        {loading ? (
-          <div
-            style={{ width: "1.5rem", height: "1.5rem" }}
-            className="spinner-border"
-            role="status"
-          >
-            <span className="visually-hidden">Loading...</span>
+      <h1 className="d-flex justify-content-center my-4">Add Product</h1>
+      <section className="container">
+        <form onSubmit={handleAddProduct} className="ms-auto me-auto w-50">
+          <div className="mb-4">
+            <label htmlFor="productImage" className="form-label">
+              Product Image:
+            </label>
+            <input
+              onChange={handleFileChange}
+              required
+              type="file"
+              className="form-control"
+              id="productImage"
+            />
           </div>
-        ) : (
-          <button type="submit" className="btn btn-primary">
-            Create product
-          </button>
-        )}
-      </form>
+
+          <div className="mb-3">
+            <label htmlFor="productTitle" className="form-label">
+              Title:
+            </label>
+            <input
+              onChange={(eo) => setTitle(eo.target.value)}
+              required
+              type="text"
+              className="form-control"
+              id="productTitle"
+            />
+            {error && error.includes("name") ? (
+              <p className="alert alert-danger mt-2">
+                title product already exist
+              </p>
+            ) : (
+              ""
+            )}
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="productPrice" className="form-label">
+              Price:
+            </label>
+            <input
+              onChange={(eo) => setPrice(eo.target.value)}
+              required
+              type="text"
+              className="form-control"
+              id="productPrice"
+            />
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="productDiscount" className="form-label">
+              Discount:
+            </label>
+            <input
+              onChange={(eo) => setDiscount(eo.target.value)}
+              required
+              type="text"
+              className="form-control"
+              id="productDiscount"
+            />
+          </div>
+
+         
+
+          <div className="mb-3">
+            <label htmlFor="productDescription" className="form-label">
+              Description:
+            </label>
+            <textarea
+              id="productDescription"
+              className="form-control"
+              onChange={(eo) => setDescription(eo.target.value)}
+              required
+            />
+          </div>
+
+          {loading ? (
+            <div
+              style={{ width: "1.5rem", height: "1.5rem" }}
+              className="spinner-border"
+              role="status"
+            >
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          ) : (
+            <button type="submit" className="btn btn-primary">
+              Create Product
+            </button>
+          )}
+        </form>
+      </section>
+
+      <Footart/>
     </>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 // json-server --watch --port 4000 ./DB.json
 
@@ -53,13 +53,16 @@ export function ThemeProvider({ children }) {
     toast.success("Your account has been created successfully");
   };
 
-  const deleteProduct = async (id) => {
+  const deleteProduct = async (_id) => {
     setloading(true);
 
     try {
-      const res = await fetch(`https://product-simpledashboard-nodejs.onrender.com/products/${id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://product-simpledashboard-nodejs.onrender.com/products/delete/${_id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (!res.ok) {
         const errorMessage = `Error: ${res.status} ${res.statusText}`;
@@ -70,7 +73,7 @@ export function ThemeProvider({ children }) {
 
       // Update the state to remove the deleted product
       if (Array.isArray(prodat)) {
-        setprodat(prodat.filter((product) => product.id !== id));
+        setprodat(prodat.filter((product) => product.id !== _id));
       }
 
       setTimeout(() => {
@@ -90,7 +93,7 @@ export function ThemeProvider({ children }) {
 
   const Addproduct = (item) => {
     setaddprodat([...addprodat, { ...item, amount: 1 }]);
-    setID([...ID, item.id]);
+    setID([...ID, item._id]);
   };
 
   const handleChange = (item, d) => {
@@ -103,9 +106,9 @@ export function ThemeProvider({ children }) {
   };
 
   const RemoveProduct = (id) => {
-    const remove = addprodat.filter((item) => item.id !== id);
-    setID(ID.filter((ID) => ID !== id));
+    const remove = addprodat.filter((item) => item._id !== id);
     setaddprodat(remove);
+    setID((prevIDs) => prevIDs.filter((ID) => ID !== id));
   };
 
   return (

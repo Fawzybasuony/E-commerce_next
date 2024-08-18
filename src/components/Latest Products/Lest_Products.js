@@ -13,7 +13,7 @@ export default function Lest_Products() {
                 <div className="section-title">
                   <h3>Latest Products</h3>
                 </div>
-                <ul className="product-controls">
+                <ul className="product-controls ps-0">
                   <li
                     onClick={() => {
                       setchanga("All");
@@ -85,6 +85,8 @@ export default function Lest_Products() {
                       <a href="/images/8.png">
                         <img className="img_0" src="/images/8.png" alt="." />
                       </a>
+                      <div className="p-status popular">popular</div>
+
                     </figure>
                     <div className="product-text">
                       <h6>One piece bodysuit</h6>
