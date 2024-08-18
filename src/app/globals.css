@@ -36,8 +36,6 @@
     }
   } 
   
-
-  .name {
-    width: 100px;
-  
-  }
+ .name {
+  width: 70px !important;
+ }

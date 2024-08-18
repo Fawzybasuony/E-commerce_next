@@ -153,8 +153,7 @@ export default function page() {
         </section>
       </div>
 
-
-      <Footart/>
+      <Footart />
     </>
   );
 }

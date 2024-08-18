@@ -6,6 +6,7 @@ import Link from "next/link";
 export default function page() {
   return (
     <>
+
       <section className="page-add cart-page-add">
         <div className="container">
           <div className="row mx-0">

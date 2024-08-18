@@ -1,13 +1,14 @@
 "use client";
 import "./productt.css";
-import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faL, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ThemeContexttt from "context/page";
 import Link from "next/link";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Laoding from "../Laoding";
 
 export default function Producttt() {
+  const [hart, sethart] = useState([]);
   const { name, Addproduct, ID, setprodat, prodat, loading, setloading } =
     useContext(ThemeContexttt);
 
@@ -33,7 +34,7 @@ export default function Producttt() {
         <>
           {!name ? (
             <h1>
-              Please add the account
+              You must be signed in to view the protected content on this page
               <FontAwesomeIcon
                 style={{ width: "22px", height: "20px", marginBottom: "5px" }}
                 icon={faLock}
@@ -48,7 +49,7 @@ export default function Producttt() {
                       return (
                         <div
                           key={item._id}
-                          // title={item.name}
+                          title={item.name}
                           className="col-sm-6 col-md-4 col-lg-3 mb-4"
                         >
                           <div className="card h-100">
@@ -61,8 +62,18 @@ export default function Producttt() {
                               />
                             </Link>
                             <div className="card-body d-flex flex-column">
-                              <h4 className="card-title me-auto text-danger">
+                              <h4 className="card-title me-auto text-danger w-100">
                                 ${item.price}
+                                <FontAwesomeIcon
+                                  style={{
+                                    float: "right",
+                                    color: hart[item._id] ? "red" : "black",
+                                  }}
+                                  onClick={() => {
+                                    sethart((ID) => ({ ...ID, [item._id]: !ID[item._id],}));
+                                  }}
+                                  icon={faHeart}
+                                />
                               </h4>
 
                               <h5
@@ -101,7 +112,7 @@ export default function Producttt() {
                   </div>
                 </div>
               ) : (
-                <h2>No products found.</h2>
+                <h2 >No products found !</h2>
               )}
             </>
           )}

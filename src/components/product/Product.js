@@ -15,7 +15,7 @@ export default function Product() {
     <>
       {!name ? (
         <h1>
-          Please add the account
+          You must be signed in to view the protected content on this page
           <FontAwesomeIcon
             style={{ width: "22px", height: "20px", marginBottom: "5px" }}
             icon={faLock}

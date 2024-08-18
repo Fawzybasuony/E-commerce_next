@@ -24,7 +24,9 @@ export default function Home() {
         <Laoding />
       ) : (
         <>
+
           <center>
+
             <Suspense fallback={<Laoding />}>
               <Slidar />
               <Product />

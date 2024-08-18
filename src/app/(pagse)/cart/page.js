@@ -11,26 +11,26 @@ export default function page({ params }) {
       {addprodat.map((item) => {
         totle += Number(item.price) * Number(item.amount);
         return (
-          <main key={item._id} className="text-center container my-5 ">
+          <main key={item._id} className="text-center mx-sm-5 my-5 ">
             <section className="cart">
-              <article className="d-flex align-items-center justify-content-between mb-4 p-3 border rounded shadow-sm">
+              <article className="d-flex align-items-center justify-content-between mb-4  border rounded shadow-sm">
                 <button
                   onClick={() => {
                     RemoveProduct(item._id);
                   }}
-                  className="btn btn-danger"
+                  className="btn btn-danger ms-sm-2"
                 >
                   Delete
                 </button>
 
-                <p className="mx-2 my-0">${item.price}</p>
+                <p className="mx-2 my-0 name">${item.price}</p>
 
                 <div className="d-flex align-items-center">
                   <button
                     onClick={() => {
                       handleChange(item, -1);
                     }}
-                    className="btn btn-info px-3"
+                    className="btn btn-info  "
                   >
                     -
                   </button>
@@ -39,17 +39,17 @@ export default function page({ params }) {
                     onClick={() => {
                       handleChange(item, +1);
                     }}
-                    className="btn btn-info px-3"
+                    className="btn btn-info "
                   >
                     +
                   </button>
                 </div>
 
-                <p className="my-0 name">{item.name} . .</p>
+                <p className="my-0 name">{item.name.slice(0, 5)}..</p>
                 <img
-                  className="rounded"
-                  width={70}
-                  height={70}
+                  className="rounded me-2 py-1"
+                  width={50}
+                  height={50}
                   alt=".."
                   src={item.mainImage.secure_url}
                 />
