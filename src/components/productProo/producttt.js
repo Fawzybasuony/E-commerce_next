@@ -38,7 +38,7 @@ export default function Producttt() {
         <Laoding />
       ) : (
         <>
-          {name ? (
+          {!name ? (
             <h1>
               You must be signed in to view the protected content on this page
               <FontAwesomeIcon
