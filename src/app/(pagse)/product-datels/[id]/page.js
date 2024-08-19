@@ -135,7 +135,7 @@ export default function page({ params }) {
                 <Link
                   href={`/Updete/${prodat._id}`}
                   type="button"
-                  className="btn btn-primary ms-3"
+                  className="btn btn-primary ms-3 "
                 >
                   <FontAwesomeIcon icon={faPen} /> Updete
                 </Link>
