@@ -73,13 +73,16 @@ export default function Product() {
           <section className="lookbok-section">
             <div className="container-fluid">
               <div className="row">
+
+            
+
                 <div className="col-lg-4 offset-lg-1">
                   <div className="lookbok-left">
                     <div className="section-title">
                       <h2>
-                        2024
+                        # 2024
                         <br /> <br />
-                        #lookbook
+                        Lookbook
                       </h2>
                     </div>
                     <p>
@@ -100,12 +103,14 @@ export default function Product() {
                     </a>
                   </div>
                 </div>
-                <div className="col-lg-5 offset-lg-1">
+
+                 <div className="col-lg-5 offset-lg-1">
                   <div className="lookbok-pic">
-                    <img loading="lazy"  src="img/f-box-3.jpg" alt="" />
+                    <img loading="lazy" className="rounded" src="img/f-box-3.jpg" alt="" />
                     <div className="pic-text">fashion</div>
                   </div>
                 </div>
+
               </div>
             </div>
           </section>

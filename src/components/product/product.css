@@ -179,9 +179,9 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 30px;
   text-align: center;
-  font-size: 135px;
+  font-size: 105px;
   color: #fff;
   font-weight: 600;
   line-height: 97px;
