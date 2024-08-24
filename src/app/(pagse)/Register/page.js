@@ -5,7 +5,7 @@ import ThemeContexttt from "context/page";
 
 import { useContext } from "react";
 export default function page() {
-  const { setname, setemail, setpassword, loading, handleSubmit } =
+  const { setname, setemail, setpassword, loading, setloading, handleSubmit } =
     useContext(ThemeContexttt);
 
   return (
@@ -66,8 +66,16 @@ export default function page() {
             <span className="visually-hidden">Loading...</span>
           </div>
         ) : (
-          <button type="submit" className="btn btn-primary">
-            Register{" "}
+          <button
+            onClick={() => {
+              setTimeout(() => {
+                setloading(false);
+              }, 2000);
+            }}
+            type="submit"
+            className="btn btn-primary"
+          >
+            Register
             <FontAwesomeIcon
               style={{ width: "20px", height: "15px" }}
               icon={faUserPlus}
