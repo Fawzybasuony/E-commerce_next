@@ -84,7 +84,7 @@ export default function page({ params }) {
               {prodat.mainImage ? (
                 <img
                   src={prodat.mainImage.secure_url}
-                  className="w-50 h-50"
+                  className="w-75 h-50 mx-md-5 rounded "
                   alt="."
                 />
               ) : (
@@ -92,10 +92,10 @@ export default function page({ params }) {
               )}
             </div>
             <div className="col-md-6">
-              <div className="product-details">
+              <div className="product-details  px-5">
                 <br />
                 {prodat ? (
-                  <>
+                  <  >
                     <h2>{prodat.name}</h2>
                     <div className="d-flex justify-content-start align-items-center mb-2">
                       <p className="price text-muted fw-bold pe-2 text-decoration-line-through mb-0">
@@ -108,7 +108,7 @@ export default function page({ params }) {
                     </div>
 
                     <p className="description">{prodat.description}</p>
-                  </>
+                  </ >
                 ) : (
                   "xxxx"
                 )}

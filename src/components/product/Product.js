@@ -102,7 +102,7 @@ export default function Product() {
                 </div>
                 <div className="col-lg-5 offset-lg-1">
                   <div className="lookbok-pic">
-                    <img src="img/f-box-3.jpg" alt="" />
+                    <img loading="lazy"  src="img/f-box-3.jpg" alt="" />
                     <div className="pic-text">fashion</div>
                   </div>
                 </div>

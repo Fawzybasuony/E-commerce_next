@@ -47,6 +47,7 @@ export default function page({ params }) {
 
                 <p className="my-0 name">{item.name.slice(0, 5)}..</p>
                 <img
+                loading="lazy"
                   className="rounded me-2 py-1"
                   width={50}
                   height={50}

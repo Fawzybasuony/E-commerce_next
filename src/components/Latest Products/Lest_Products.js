@@ -53,7 +53,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="#">
-                        <img className="img_0" src="/images/(1).jpg" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/(1).jpg" alt="." />
                       </a>
                       <div className="p-status">new</div>
                     </figure>
@@ -68,7 +68,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/(6).jpg">
-                        <img className="img_0" src="/images/(6).jpg" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/(6).jpg" alt="." />
                       </a>
                       <div className="p-status sale">sale</div>
                     </figure>
@@ -83,7 +83,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/8.png">
-                        <img className="img_0" src="/images/8.png" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/8.png" alt="." />
                       </a>
                       <div className="p-status popular">popular</div>
 
@@ -99,7 +99,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/(2).jpg">
-                        <img className="img_0" src="/images/(2).jpg" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/(2).jpg" alt="." />
                       </a>
                       <div className="p-status popular">popular</div>
                     </figure>
@@ -114,7 +114,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/(3).jpg">
-                        <img className="img_0" src="/images/(3).jpg" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/(3).jpg" alt="." />
                       </a>
                       <div className="p-status sale">sale</div>
                     </figure>
@@ -129,7 +129,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/(4).jpg">
-                        <img className="img_0" src="/images/(4).jpg" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/(4).jpg" alt="." />
                       </a>
                       <div className="p-status">new</div>
                     </figure>
@@ -143,7 +143,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/(5).jpg">
-                        <img className="img_0" src="/images/(5).jpg" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/(5).jpg" alt="." />
                       </a>
                       <div className="p-status popular">popular</div>
                     </figure>
@@ -158,7 +158,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/4.webp">
-                        <img className="img_0" src="/images/4.webp" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/4.webp" alt="." />
                       </a>
                       <div className="p-status">new</div>
                     </figure>
@@ -177,7 +177,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/(4).jpg">
-                        <img className="img_0" src="/images/(4).jpg" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/(4).jpg" alt="." />
                       </a>
                       <div className="p-status">new</div>
                     </figure>
@@ -192,7 +192,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/8.png">
-                        <img className="img_0" src="/images/8.png" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/8.png" alt="." />
                       </a>
                     </figure>
                     <div className="product-text">
@@ -205,7 +205,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/(3).jpg">
-                        <img className="img_0" src="/images/(3).jpg" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/(3).jpg" alt="." />
                       </a>
                       <div className="p-status sale">sale</div>
                     </figure>
@@ -224,7 +224,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/(1).jpg">
-                        <img className="img_0" src="/images/(1).jpg" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/(1).jpg" alt="." />
                       </a>
                       <div className="p-status">new</div>
                     </figure>
@@ -238,7 +238,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/(2).jpg">
-                        <img className="img_0" src="/images/(2).jpg" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/(2).jpg" alt="." />
                       </a>
                       <div className="p-status popular">popular</div>
                     </figure>
@@ -252,7 +252,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/Apple_Watch_Series_9_GPS_45mm_Starlight.webp">
-                        <img
+                        <img loading="lazy" 
                           className="img_0"
                           src="/images/Apple_Watch_Series_9_GPS_45mm_Starlight.webp"
                           alt="."
@@ -275,7 +275,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/(5).jpg">
-                        <img className="img_0" src="/images/(5).jpg" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/(5).jpg" alt="." />
                       </a>
                       <div className="p-status popular">popular</div>
                     </figure>
@@ -290,7 +290,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/(6).jpg">
-                        <img className="img_0" src="/images/(6).jpg" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/(6).jpg" alt="." />
                       </a>
                       <div className="p-status">new</div>
                     </figure>
@@ -305,7 +305,7 @@ export default function Lest_Products() {
                   <div className="single-product-item">
                     <figure>
                       <a href="/images/4.webp">
-                        <img className="img_0" src="/images/4.webp" alt="." />
+                        <img loading="lazy"  className="img_0" src="/images/4.webp" alt="." />
                       </a>
                       <div className="p-status">new</div>
                     </figure>

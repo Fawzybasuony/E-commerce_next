@@ -7,7 +7,7 @@ export default function Slidar() {
     <>
       <Swiper className="mySwiper_1">
         <SwiperSlide className="set">
-          <img src="/images/(6).jpg" alt=".." />
+          <img loading="lazy"   src="/images/(6).jpg" alt=".." />
           <div className="bol position-absolute text-light">
             <h1>2024</h1>
             <h2>Lookbook.</h2>
@@ -18,7 +18,7 @@ export default function Slidar() {
         </SwiperSlide>
 
         <SwiperSlide>
-          <img src="/images/(2).jpg" alt=".." />
+          <img loading="lazy"  src="/images/(2).jpg" alt=".." />
           <div className="bol position-absolute text-light">
             <h1>2024</h1>
             <h2>Lookbook.</h2>
@@ -28,7 +28,7 @@ export default function Slidar() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/(3).jpg" alt=".." />
+          <img loading="lazy" src="/images/(3).jpg" alt=".." />
           <div className="bol position-absolute text-light">
             <h1>2024</h1>
             <h2>Lookbook.</h2>
@@ -38,7 +38,7 @@ export default function Slidar() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/(4).jpg" alt=".." />
+          <img loading="lazy"  src="/images/(4).jpg" alt=".." />
           <div className="bol position-absolute text-light">
             <h1>2024</h1>
             <h2>Lookbook.</h2>
@@ -48,7 +48,7 @@ export default function Slidar() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/(5).jpg" alt=".." />
+          <img loading="lazy"  src="/images/(5).jpg" alt=".." />
           <div className="bol position-absolute text-light">
             <h1>2024</h1>
             <h2>Lookbook.</h2>
@@ -58,7 +58,7 @@ export default function Slidar() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/(1).jpg" alt=".." />
+          <img loading="lazy"  src="/images/(1).jpg" alt=".." />
           <div className="bol position-absolute text-light">
             <h1>2024</h1>
             <h2>Lookbook.</h2>

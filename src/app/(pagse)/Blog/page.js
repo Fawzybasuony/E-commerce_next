@@ -16,7 +16,7 @@ export default function page() {
                 </div>
               </div>
               <div className="col-lg-8 xc">
-                <img src="img/add.jpg" alt="." />
+                <img loading="lazy" src="img/add.jpg" alt="." />
               </div>
             </div>
           </div>

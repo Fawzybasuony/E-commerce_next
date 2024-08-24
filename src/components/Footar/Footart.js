@@ -97,11 +97,11 @@ export default function Footart() {
               </a>
             </div>
           </div>
-          <div className="container w-75 text-center pt-5 text-light">
-            <p>
-              Copyright © All rights reserved
+          <div className="d-inline-block container  w-100 text-center pt-1 text-light">
+            <p className="float-md-end ">
+              Copyright © All rights reserved  / 
               <a href="https://colorlib.com" target="_blank">
-                Colorlib
+                   Colorlib
               </a>
             </p>
           </div>
