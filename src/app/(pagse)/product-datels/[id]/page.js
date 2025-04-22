@@ -2,13 +2,14 @@
 
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Footart from "components/Footar/Footart";
-import Laoding from "components/Laoding";
-import ThemeContexttt from "context/page";
+import Footart from "../../.././../components/Footar/Footar";
+import Laoding from "../../.././../components/Laoding";
+import ThemeContexttt from "../../../../context/page";
 
 import Link from "next/link";
 
 import { useContext, useEffect } from "react";
+import { useParams } from "next/navigation";
 
 // async function getData(id) {
 //   const res = await fetch(`http://localhost:4000/products/${id}`);
@@ -16,7 +17,9 @@ import { useContext, useEffect } from "react";
 // }
 // const objData = await getData(params.id);
 
-export default function page({ params }) {
+export default function page() {
+  const params = useParams();
+
   const {
     loading,
     setloading,
@@ -26,49 +29,33 @@ export default function page({ params }) {
     laod,
     setlaod,
   } = useContext(ThemeContexttt);
-
   useEffect(() => {
-    fetch(
-      `https://product-simpledashboard-nodejs.onrender.com/products/${params.id}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_KEY}/${params.id}`
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch product");
+        }
+        const data = await res.json();
         setprodat(data.product);
         setloading(false);
-      });
+
+        setTimeout(() => {
+          setlaod(false);
+        }, 500);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+        setloading(false);
+        setlaod(false);
+      }
+    };
+
+    if (params.id) {
+      fetchData();
+    }
   }, [params.id]);
-
-  // useEffect(() => {
-  //   const getData = async (id) => {
-  //     try {
-  //       const res = await fetch(`https://product-simpledashboard-nodejs.onrender.com/products`);
-  //       const data = await res.json();
-  //       const product = data.products.find((item) => item.id === id);
-  //       setprodat( product);
-  //       console.log(data)
-  //     } catch (error) {
-  //       console.error("Error fetching product:", error);
-  //     }
-  //   };
-
-  //   if (params.id) {
-  //     getData(params.id);
-  //   }
-  // }, [params.id]);
-  //  useEffect(() => {
-  //     const getData = async (id) => {
-  //     fetch(`https://product-simpledashboard-nodejs.onrender.com/products/${params.id}`)
-  //       .then((res) => res.json())
-  //       .then((prodact) => {
-  //         setprodat(prodact);
-  //       });
-  //     }
-  //     getData(params.id)
-  //     }, [params.id]);
-
-  setTimeout(() => {
-    setlaod(false);
-  }, 500);
 
   return (
     <>
@@ -85,7 +72,7 @@ export default function page({ params }) {
                 <img
                   src={prodat.mainImage.secure_url}
                   className="w-75 h-50 mx-md-5 rounded "
-                  alt="."
+                  alt={prodat.name}
                 />
               ) : (
                 <p>No image available</p>
@@ -95,7 +82,7 @@ export default function page({ params }) {
               <div className="product-details  px-5">
                 <br />
                 {prodat ? (
-                  <  >
+                  <>
                     <h2>{prodat.name}</h2>
                     <div className="d-flex justify-content-start align-items-center mb-2">
                       <p className="price text-muted fw-bold pe-2 text-decoration-line-through mb-0">
@@ -108,9 +95,20 @@ export default function page({ params }) {
                     </div>
 
                     <p className="description">{prodat.description}</p>
-                  </ >
+
+                    <div className="mt-3">
+                      <p className="text-muted mb-1">
+                        <strong>Created At:</strong>{" "}
+                        {new Date(prodat.createdAt).toLocaleString()}
+                      </p>
+                      <p className="text-muted">
+                        <strong>Updated At:</strong>{" "}
+                        {new Date(prodat.updatedAt).toLocaleString()}
+                      </p>
+                    </div>
+                  </>
                 ) : (
-                  "xxxx"
+                  "Loading..."
                 )}
                 {loading ? (
                   <div

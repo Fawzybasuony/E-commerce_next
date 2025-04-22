@@ -6,7 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { ThemeProvider } from "../context/page";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Header from "components/hedar/header";
+import Header from "../components/hedar/header";
+ 
 
 const inter = Roboto({
   subsets: ["latin"],
@@ -17,7 +18,7 @@ export const metadata = {
   title: "Shop easily",
   description: "Your favorite marketYour products are here",
   icons: {
-    icon: "./images/bag-shopping-solid.svg",
+    icon: "/images/bag-shopping-solid.svg",
   },
 };
 

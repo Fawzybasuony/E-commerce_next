@@ -1,4 +1,6 @@
-import Footart from 'components/Footar/Footart';
+ 
+import Footar from '../../../components/Footar/Footar';
+import Heder_info from '../../../helpers/Heder_info';
 import   './contact.css';
 
 export default function page() {
@@ -9,16 +11,9 @@ export default function page() {
  
   <section className="page-add">
     <div className="container">
-      <div className="row">
-        <div className="col-lg-4">
-          <div className="page-breadcrumb">
-            <h2>Contact us<span>.</span></h2>
-          </div>
-        </div>
-        <div className="col-lg-8 xc">
-          <img src="img/add.jpg" alt='.' />
-        </div>
-      </div>
+          {/* sec_top */}
+          <Heder_info title={"Contact us"}/>
+
     </div>
   </section>
   <div className="contact-section">
@@ -82,7 +77,7 @@ export default function page() {
 </div>
 
 
-<Footart/>
+<Footar/>
 
     </>
   )

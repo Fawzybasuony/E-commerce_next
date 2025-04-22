@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import "./Footar.css";
 
-export default function Footart() {
+export default function Footar() {
   return (
     <>
       <footer className="footer-section spad">

@@ -3,8 +3,8 @@
 import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import ThemeContexttt from "context/page";
-import Footart from "components/Footar/Footart";
+import ThemeContexttt from "../../../context/page";
+import Footart from "../../../components/Footar/Footar";
 
 export default function page() {
   const { setloading, loading } = useContext(ThemeContexttt);
@@ -38,14 +38,11 @@ export default function page() {
       formData.append("description", description || "Default Description");
       // @ts-ignore
       formData.append("discount", discount || 0);
-      
-      const resAddProduct = await fetch(
-        "https://product-simpledashboard-nodejs.onrender.com/products",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+
+      const resAddProduct = await fetch(process.env.NEXT_PUBLIC_API_KEY, {
+        method: "POST",
+        body: formData,
+      });
 
       const data = await resAddProduct.json();
 
@@ -133,8 +130,6 @@ export default function page() {
             />
           </div>
 
-         
-
           <div className="mb-3">
             <label htmlFor="productDescription" className="form-label">
               Description:
@@ -163,7 +158,7 @@ export default function page() {
         </form>
       </section>
 
-      <Footart/>
+      <Footart />
     </>
   );
 }

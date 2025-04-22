@@ -22,23 +22,20 @@ export function ThemeProvider({ children }) {
   const [addprodat, setaddprodat] = useState([]);
   const [ID, setID] = useState([]);
 
-  const admin = () => {
-    // if (email == "fawzy@gmail.com" && password == "555") {
-    //   setloading(true);
-    //   setdata(true);
-    //   setname("Admin");
-    //   router.push("/");
-    //   setloading(false);
-    // } else {
-    //   seterror("Sorry, this page is for admin");
-    //   setloading(false);
-    //   setdata(false);
-    // }
-  };
+//  __cart page 
+const [totle, setTotle] = useState(0);
+
+useEffect(() => {
+  const newTotal = addprodat.reduce((acc, item) => {
+    return acc + Number(item.price) * Number(item.amount);
+  }, 0);
+  setTotle(newTotal);
+}, [addprodat]);
+
 
   const handleSubmit = (eo) => {
     eo.preventDefault();
-    // admin();
+    
     setloading(true);
     setTimeout(() => {
       setloading(false);
@@ -126,7 +123,6 @@ export function ThemeProvider({ children }) {
         loading,
         data,
         setdata,
-        admin,
         handleSubmit,
         prodat,
         setprodat,
@@ -140,6 +136,7 @@ export function ThemeProvider({ children }) {
         RemoveProduct,
         ID,
         setID,
+        totle,
       }}
     >
       {children}

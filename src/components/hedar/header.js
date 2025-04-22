@@ -9,12 +9,13 @@ import {
   faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ThemeContexttt from "context/page";
+ 
 import Link from "next/link";
 import { useContext, useEffect } from "react";
+import ThemeContexttt from "../../context/page";
 
-export default function header() {
-  const { name, data, addprodat } = useContext(ThemeContexttt);
+export default function Header() {
+  const {   data, addprodat } = useContext(ThemeContexttt);
 
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
@@ -38,11 +39,11 @@ export default function header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <div className="logo mt-3">
               <Link href="/">
-                <img src="img/logo.png" alt="." />
+                <img src="/icon_header/logo.png" alt="logoo" />
               </Link>
             </div>
 
-            {data ? (
+            {!data ? (
               <>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 mt-2">
                   <li className="nav-item"></li>
@@ -121,7 +122,7 @@ export default function header() {
             ) : (
               ""
             )}
-            {data ? (
+            {/* {data ? (
               <>
                 <li className="nav-item  mt-1 me-2">
                   <Link
@@ -150,42 +151,6 @@ export default function header() {
               </>
             ) : (
               <>
-                {/* <div className="d-flex float-end">
-                  <li className="nav-item  mt-2 me-2">
-                    <Link
-                      className={`nav-link p-1`}
-                      style={{
-                        border: "solid 3px #B0BCC2",
-                        borderRadius: "20px",
-                      }}
-                      href="/Register"
-                    >
-                      Register{" "}
-                      <FontAwesomeIcon
-                        style={{ width: "20px", height: "15px" }}
-                        icon={faUserPlus}
-                      />
-                    </Link>
-                  </li>
-
-
-                  <li className="nav-item mt-2 me-2">
-                      <Link
-                        className={`nav-link p-1`}
-                        style={{
-                          border: "solid 3px #B0BCC2",
-                          borderRadius: "20px",
-                        }}
-                        href="/signeIn"
-                      >
-                        signe In{" "}
-                        <FontAwesomeIcon
-                          style={{ width: "20px", height: "15px" }}
-                          icon={faSignInAlt}
-                        />
-                      </Link>
-                  </li>
-                </div> */}
                 <div className="container mt-2">
                   <div className="row">
                     <div className="col-12 d-flex justify-content-end align-items-center">
@@ -199,7 +164,7 @@ export default function header() {
                             }}
                             href="/Register"
                           >
-                            Register{" "}
+                           Signe up
                             <FontAwesomeIcon
                               style={{ width: "20px", height: "15px" }}
                               icon={faUserPlus}
@@ -215,7 +180,7 @@ export default function header() {
                             }}
                             href="/signeIn"
                           >
-                            signe In{" "}
+                            Signe In
                             <FontAwesomeIcon
                               style={{ width: "20px", height: "15px" }}
                               icon={faSignInAlt}
@@ -227,7 +192,7 @@ export default function header() {
                   </div>
                 </div>
               </>
-            )}
+            )} */}
           </div>
         </div>
       </nav>
@@ -237,19 +202,19 @@ export default function header() {
           <div className="row">
             <div className="col-md-4 p-1">
               <div className="header-item">
-                <img src="img/icons/delivery.png" alt="." />
+                <img src="/icon_header/delivery.png" alt="delivery" />
                 <p>Free shipping on orders over $30 in USA</p>
               </div>
             </div>
             <div className="col-md-4 p-2 text-left text-lg-center">
               <div className="header-item">
-                <img src="img/icons/voucher.png" alt="." />
+                <img src="/icon_header/voucher.png" alt="_voucher" />
                 <p>20% Student Discount</p>
               </div>
             </div>
             <div className="col-md-4 p-1 text-left text-xl-right">
               <div className="header-item">
-                <img src="img/icons/sales.png" alt="." />
+                <img src="/icon_header/sales.png" alt="_sales" />
                 <p>30% off on dresses. Use code: 30OFF</p>
               </div>
             </div>

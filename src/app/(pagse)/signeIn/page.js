@@ -1,13 +1,12 @@
 "use client";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ThemeContexttt from "context/page";
+import ThemeContexttt from "../../../context/page";
 
 import { useContext } from "react";
 
 export default function Product() {
-  const { setemail, setpassword, error, loading, admin } =
-    useContext(ThemeContexttt);
+  const { setemail, setpassword, error, loading } = useContext(ThemeContexttt);
 
   return (
     <>
@@ -55,12 +54,14 @@ export default function Product() {
         ) : (
           <button
             onClick={() => {
-              admin();
+              
+             console.log("SigneIn clicked here");
+             
             }}
             type="button"
             className="btn btn-primary"
           >
-            SigneIn{" "}
+            SigneIn 
             <FontAwesomeIcon
               style={{ width: "20px", height: "15px" }}
               icon={faSignInAlt}

@@ -1,0 +1,47 @@
+.group:hover h3, 
+.group:hover p, 
+.group:hover button {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 999;
+}
+
+ 
+.slide-title,
+.slide-description,
+.slide-button {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: all 0.7s ease;
+}
+
+.slide-title {
+  transition-delay: 0ms;
+}
+
+.slide-description {
+  transition-delay: 100ms;
+}
+
+.slide-button {
+  transition-delay: 200ms;
+}
+
+ 
+.group:hover .slide-title,
+.group:hover .slide-description,
+.group:hover .slide-button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+ 
+.text-purple {
+  color: #6b46c1;  
+}
+
+ 
+.btn-light:hover {
+  background-color: #f7fafc;  
+}
+ 

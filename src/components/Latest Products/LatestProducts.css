@@ -8,16 +8,18 @@
 }
 
 .product-filter .section-title {
-  margin-bottom: 20px;
+  font-size: xx-large;
+  margin-bottom: 15px;
+  font-family: bold;
+  letter-spacing: 1px;
 }
 
 .product-filter .product-controls li {
   list-style: none;
   display: inline-block;
   color: #838383;
-  font-size: 14px;
-  margin-right: 32px;
-  font-weight: 550;
+  font-size: 17px; 
+  padding: 30px;
   cursor: pointer;
 }
 

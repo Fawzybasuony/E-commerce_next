@@ -1,4 +1,6 @@
-import Footart from "components/Footar/Footart";
+import Footar from "../../../components/Footar/Footar";
+import Heder_info from "../../../helpers/Heder_info";
+import Prices from "./prices";
 import "./Blog.css";
 
 export default function page() {
@@ -7,18 +9,8 @@ export default function page() {
       <div>
         <section className="page-add">
           <div className="container">
-            <div className="row">
-              <div className="col-lg-4">
-                <div className="page-breadcrumb">
-                  <h2>
-                    Checkout<span>.</span>
-                  </h2>
-                </div>
-              </div>
-              <div className="col-lg-8 xc">
-                <img loading="lazy" src="img/add.jpg" alt="." />
-              </div>
-            </div>
+            {/* sec_info */}
+            <Heder_info title={"Checkout"} />
           </div>
         </section>
         <section className="cart-total-page spad">
@@ -56,6 +48,7 @@ export default function page() {
                     <div className="col-lg-10">
                       <select className="cart-select country-usa">
                         <option>USA</option>
+                        <option>EG</option>
                       </select>
                     </div>
                   </div>
@@ -101,28 +94,8 @@ export default function page() {
                   </div>
                 </div>
                 <div className="col-lg-3">
-                  <div className="order-table">
-                    <div className="cart-item">
-                      <span>Product</span>
-                      <p className="product-name">Blue Dotted Shirt</p>
-                    </div>
-                    <div className="cart-item">
-                      <span>Price</span>
-                      <p>$29</p>
-                    </div>
-                    <div className="cart-item">
-                      <span>Quantity</span>
-                      <p>1</p>
-                    </div>
-                    <div className="cart-item">
-                      <span>Shipping</span>
-                      <p>$10</p>
-                    </div>
-                    <div className="cart-total">
-                      <span>Total</span>
-                      <p>$39</p>
-                    </div>
-                  </div>
+                  {/* Prices */}
+                  <Prices />
                 </div>
               </div>
               <div className="row">
@@ -131,11 +104,11 @@ export default function page() {
                     <h3>Payment</h3>
                     <ul>
                       <li>
-                        Paypal <img src="img/paypal.jpg" alt="." />
+                        Paypal <img src="/images/paypal.jpg" alt="." />
                       </li>
                       <li>
                         Credit / Debit card{" "}
-                        <img src="img/mastercard.jpg" alt="." />
+                        <img src="/images/mastercard.jpg" alt="." />
                       </li>
                       <li>
                         <label htmlFor="two">
@@ -153,7 +126,7 @@ export default function page() {
         </section>
       </div>
 
-      <Footart />
+      <Footar />
     </>
   );
 }

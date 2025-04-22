@@ -1,325 +1,151 @@
 import { useState } from "react";
 import "./LatestProducts.css";
-export default function Lest_Products() {
-  const [changa, setchanga] = useState("All");
+
+const products = [
+  {
+    id: 1,
+    category: ["All", "headphones"],
+    image: "/main_lest/(1).jpg",
+    link: "/main_lest/(1).jpg",
+    status: "new",
+    title: "Green Dress with details",
+    price: "$22.90",
+  },
+  {
+    id: 2,
+    category: ["All", "headphones"],
+    image: "/main_lest/(6).jpg",
+    link: "/main_lest/(6).jpg",
+    status: "sale",
+    title: "Yellow Maxi Dress",
+    price: "$25.90",
+  },
+  {
+    id: 3,
+    category: ["All", "T shirts"],
+    image: "/main_lest/8.png",
+    link: "/main_lest/8.png",
+    status: "popular",
+    title: "One piece bodysuit",
+    price: "$19.90",
+  },
+  {
+    id: 4,
+    category: ["All", "headphones"],
+    image: "/main_lest/(2).jpg",
+    link: "/images/(2).jpg",
+    status: "popular",
+    title: "Blue Dress with details",
+    price: "$35.50",
+  },
+  {
+    id: 5,
+    category: ["All", "T shirts"],
+    image: "/main_lest/(3).jpg",
+    link: "/main_lest/(3).jpg",
+    status: "sale",
+    title: "Yellow Maxi Dress",
+    price: "$25.90",
+  },
+  {
+    id: 6,
+    category: ["All", "T shirts", "Shoes"],
+    image: "/main_lest/(6).jpg",
+    link: "/main_lest/(4).jpg",
+    status: "new",
+    title: "One piece bodysuit",
+    price: "$19.90",
+  },
+  {
+    id: 7,
+    category: ["All", "Shoes"],
+    image: "/main_lest/(5).jpg",
+    link: "/main_lest/(5).jpg",
+    status: "popular",
+    title: "Blue Dress with details",
+    price: "$35.50",
+  },
+  {
+    id: 8,
+    category: ["All", "Shoes"],
+    image: "/main_lest/4.webp",
+    link: "/main_lest/4.webp",
+    status: "new",
+    title: "Green Dress with details",
+    price: "$22.90",
+  },
+  {
+    id: 9,
+    category: ["headphones"],
+    image: "/main_lest/(5).jpg",
+    link: "/main_lest/(5).jpg",
+    status: "popular",
+    title: "Blue Dress with details",
+    price: "$35.50",
+  },
+];
+
+export default function LatestProducts() {
+  const [changa, setChanga] = useState("All");
+
+  const filteredProducts = products.filter((product) =>
+    product.category.includes(changa)
+  );
 
   return (
-    <>
-      <section className="latest-products spad">
-        <div className="container">
-          <div className="product-filter">
-            <div className="row">
-              <div className="col-lg-12 text-center">
-                <div className="section-title">
-                  <h3>Latest Products</h3>
-                </div>
-                <ul className="product-controls ps-0">
+    <section className="latest-products spad">
+      <div className="container">
+        <div className="product-filter">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              {/* title */}
+              <strong className="section-title">Latest Products</strong>
+
+              <ul className="product-controls p-0">
+                {["All", "T shirts", "headphones", "Shoes"].map((category) => (
                   <li
-                    onClick={() => {
-                      setchanga("All");
-                    }}
+                    key={category}
+                    onClick={() => setChanga(category)}
+                    className={
+                      changa === category ? "active text-danger fw-bold" : " "
+                    }
                   >
-                    All
+                    {category}
                   </li>
-                  <li
-                    onClick={() => {
-                      setchanga("T shirts");
-                    }}
-                  >
-                    T shirts
-                  </li>
-                  <li
-                    onClick={() => {
-                      setchanga("headphones");
-                    }}
-                  >
-                    headphones
-                  </li>
-                  <li
-                    onClick={() => {
-                      setchanga("Shoes");
-                    }}
-                  >
-                    Shoes
-                  </li>
-                </ul>
-              </div>
+                ))}
+              </ul>
             </div>
           </div>
-          <div className="row" id="product-list">
-            {changa === "All" && (
-              <>
-                <div className="col-lg-3 col-sm-6 mix all dresses bags">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="#">
-                        <img loading="lazy"  className="img_0" src="/images/(1).jpg" alt="." />
-                      </a>
-                      <div className="p-status">new</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>Green Dress with details</h6>
-                      <p>$22.90</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-3 col-sm-6 mix all accesories bags">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/(6).jpg">
-                        <img loading="lazy"  className="img_0" src="/images/(6).jpg" alt="." />
-                      </a>
-                      <div className="p-status sale">sale</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>Yellow Maxi Dress</h6>
-                      <p>$25.90</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-3 col-sm-6 mix all dresses bags">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/8.png">
-                        <img loading="lazy"  className="img_0" src="/images/8.png" alt="." />
-                      </a>
-                      <div className="p-status popular">popular</div>
-
-                    </figure>
-                    <div className="product-text">
-                      <h6>One piece bodysuit</h6>
-                      <p>$19.90</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-3 col-sm-6 mix all accesories bags">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/(2).jpg">
-                        <img loading="lazy"  className="img_0" src="/images/(2).jpg" alt="." />
-                      </a>
-                      <div className="p-status popular">popular</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>Blue Dress with details</h6>
-                      <p>$35.50</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-3 col-sm-6 mix all dresses bags">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/(3).jpg">
-                        <img loading="lazy"  className="img_0" src="/images/(3).jpg" alt="." />
-                      </a>
-                      <div className="p-status sale">sale</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>Yellow Maxi Dress</h6>
-                      <p>$25.90</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-3 col-sm-6 mix all shoes accesories">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/(4).jpg">
-                        <img loading="lazy"  className="img_0" src="/images/(4).jpg" alt="." />
-                      </a>
-                      <div className="p-status">new</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>One piece bodysuit</h6>
-                      <p>$19.90</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-sm-6 mix all shoes accesories">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/(5).jpg">
-                        <img loading="lazy"  className="img_0" src="/images/(5).jpg" alt="." />
-                      </a>
-                      <div className="p-status popular">popular</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>Blue Dress with details</h6>
-                      <p>$35.50</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-3 col-sm-6 mix all dresses shoes">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/4.webp">
-                        <img loading="lazy"  className="img_0" src="/images/4.webp" alt="." />
-                      </a>
-                      <div className="p-status">new</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>Green Dress with details</h6>
-                      <p>$22.90</p>
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
-
-            {changa === "T shirts" && (
-              <>
-                <div className="col-lg-3 col-sm-6 mix all shoes accesories">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/(4).jpg">
-                        <img loading="lazy"  className="img_0" src="/images/(4).jpg" alt="." />
-                      </a>
-                      <div className="p-status">new</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>One piece bodysuit</h6>
-                      <p>$19.90</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-3 col-sm-6 mix all dresses bags">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/8.png">
-                        <img loading="lazy"  className="img_0" src="/images/8.png" alt="." />
-                      </a>
-                    </figure>
-                    <div className="product-text">
-                      <h6>One piece bodysuit</h6>
-                      <p>$19.90</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-sm-6 mix all dresses bags">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/(3).jpg">
-                        <img loading="lazy"  className="img_0" src="/images/(3).jpg" alt="." />
-                      </a>
-                      <div className="p-status sale">sale</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>Yellow Maxi Dress</h6>
-                      <p>$25.90</p>
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
-
-            {changa === "headphones" && (
-              <>
-                <div className="col-lg-3 col-sm-6 mix all dresses bags">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/(1).jpg">
-                        <img loading="lazy"  className="img_0" src="/images/(1).jpg" alt="." />
-                      </a>
-                      <div className="p-status">new</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>Green Dress with details</h6>
-                      <p>$22.90</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-sm-6 mix all accesories bags">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/(2).jpg">
-                        <img loading="lazy"  className="img_0" src="/images/(2).jpg" alt="." />
-                      </a>
-                      <div className="p-status popular">popular</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>Blue Dress with details</h6>
-                      <p>$35.50</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-sm-6 mix all accesories bags">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/Apple_Watch_Series_9_GPS_45mm_Starlight.webp">
-                        <img loading="lazy" 
-                          className="img_0"
-                          src="/images/Apple_Watch_Series_9_GPS_45mm_Starlight.webp"
-                          alt="."
-                        />
-                      </a>
-                      <div className="p-status popular">popular</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>Blue Dress with details</h6>
-                      <p>$35.50</p>
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
-
-            {changa === "Shoes" && (
-              <>
-                <div className="col-lg-3 col-sm-6 mix all shoes accesories">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/(5).jpg">
-                        <img loading="lazy"  className="img_0" src="/images/(5).jpg" alt="." />
-                      </a>
-                      <div className="p-status popular">popular</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>Blue Dress with details</h6>
-                      <p>$35.50</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-3 col-sm-6 mix all dresses shoes">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/(6).jpg">
-                        <img loading="lazy"  className="img_0" src="/images/(6).jpg" alt="." />
-                      </a>
-                      <div className="p-status">new</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>Green Dress with details</h6>
-                      <p>$22.90</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-3 col-sm-6 mix all dresses shoes">
-                  <div className="single-product-item">
-                    <figure>
-                      <a href="/images/4.webp">
-                        <img loading="lazy"  className="img_0" src="/images/4.webp" alt="." />
-                      </a>
-                      <div className="p-status">new</div>
-                    </figure>
-                    <div className="product-text">
-                      <h6>Green Dress with details</h6>
-                      <p>$22.90</p>
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
-          </div>
         </div>
-      </section>
-    </>
+        <div className="row" id="product-list">
+          {filteredProducts.map((product) => (
+            <div
+              key={product.id}
+              className="col-lg-4 col-sm-6 mix all dresses bags"
+            >
+              <div className="single-product-item">
+                <figure>
+                  <a href={product.link}>
+                    <img
+                      loading="lazy"
+                      className="img_0"
+                      src={product.image}
+                      alt={product.title}
+                    />
+                  </a>
+                  <div className={`p-status ${product.status}`}>
+                    {product.status}
+                  </div>
+                </figure>
+                <div className="product-text">
+                  <h6>{product.title}</h6>
+                  <p>{product.price}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
