@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useSignOut } from "react-firebase-hooks/auth";
@@ -21,33 +22,49 @@ export default function ModelSigneOut({ Showmodel_, setShowmodel_ }) {
   return (
     <>
       {Showmodel_ && (
-        <div className="modal-overlay" onClick={() => setShowmodel_(false)}>
-          <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <h5>Confirm Sign Out</h5>
-              <button
-                className="btn-close"
-                onClick={() => setShowmodel_(false)}
-              ></button>
-            </div>
+        <>
+          <div className="parent-of-model"></div>
+          <div className="modal fade show d-block">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">Confirm Sign Out</h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    aria-label="Close"
+                    onClick={() => {
+                      setShowmodel_(false);
+                    }}
+                  ></button>
+                </div>
 
-            <div className="modal-body">
-              <p>Are you sure you want to sign out?</p>
-            </div>
+                <div className="modal-body">
+                  <p>Are you sure you want to sign out?</p>
+                </div>
 
-            <div className="modal-footer">
-              <button
-                className="btn btn-secondary"
-                onClick={() => setShowmodel_(false)}
-              >
-                Cancel
-              </button>
-              <button className="btn btn-danger" onClick={handleSignOut}>
-                Sign Out
-              </button>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={() => {
+                      setShowmodel_(false);
+                    }}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={handleSignOut}
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </>
   );

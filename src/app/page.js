@@ -11,7 +11,12 @@ import Header from "../components/Headar/Header";
 export default function Home() {
   const [user, loading, error] = useAuthState(auth);
 
-  if (loading) return <Laoding />;
+  if (loading) return (
+    <>
+      <Header />  
+      <Laoding />
+    </>
+  );
   if (error)
     return (
       <h1 className="text-danger text-center mt-5">Something went wrong 💥</h1>

@@ -28,9 +28,9 @@ export default function Header({
   const [Showmodel, setShowmodel] = useState(false);
   const [user] = useAuthState(auth);
 
-  // useEffect(() => {
-  //   require("bootstrap/dist/js/bootstrap.bundle.min.js");
-  // }, []);
+  useEffect(() => {
+    require("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
 
   return (
     <>
