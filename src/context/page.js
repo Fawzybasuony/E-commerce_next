@@ -2,7 +2,6 @@
 import { useRouter } from "next/navigation";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-// json-server --watch --port 4000 ./DB.json
 
 // @ts-ignore
 const ThemeContexttt = createContext();
@@ -22,20 +21,19 @@ export function ThemeProvider({ children }) {
   const [addprodat, setaddprodat] = useState([]);
   const [ID, setID] = useState([]);
 
-//  __cart page 
-const [totle, setTotle] = useState(0);
+  //  __cart page
+  const [totle, setTotle] = useState(0);
 
-useEffect(() => {
-  const newTotal = addprodat.reduce((acc, item) => {
-    return acc + Number(item.price) * Number(item.amount);
-  }, 0);
-  setTotle(newTotal);
-}, [addprodat]);
-
+  useEffect(() => {
+    const newTotal = addprodat.reduce((acc, item) => {
+      return acc + Number(item.price) * Number(item.amount);
+    }, 0);
+    setTotle(newTotal);
+  }, [addprodat]);
 
   const handleSubmit = (eo) => {
     eo.preventDefault();
-    
+
     setloading(true);
     setTimeout(() => {
       setloading(false);
@@ -55,7 +53,7 @@ useEffect(() => {
 
     try {
       const res = await fetch(
-        `https://product-simpledashboard-nodejs.onrender.com/products/delete/${_id}`,
+        `${process.env.NEXT_PUBLIC_API_KEY}/delete/${_id}`,
         {
           method: "DELETE",
         }

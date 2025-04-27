@@ -1,4 +1,3 @@
- 
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
@@ -8,7 +7,6 @@ import { Autoplay } from "swiper/modules";
 import Image from "next/image";
 import "./Slidar_2.css";
 export default function Logo_Slider() {
-
   const sliderImages = [
     "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
     "https://www.freepnglogos.com/uploads/starbucks-logo-png-25.png",
@@ -16,7 +14,6 @@ export default function Logo_Slider() {
     "https://pngimg.com/uploads/nike/nike_PNG7.png",
     "https://pngimg.com/uploads/amazon/amazon_PNG17.png",
   ];
-
 
   return (
     <>
@@ -40,9 +37,10 @@ export default function Logo_Slider() {
             <Image
               src={image}
               alt={`Brand Logo ${index}`}
-              width={150}
-              height={60}
-              className="object-contain"
+              width={0}
+              height={0}
+              sizes="(max-width: 768px) 100px, 150px"
+              className="w-[100px] md:w-[150px] h-auto object-contain"
             />
           </SwiperSlide>
         ))}

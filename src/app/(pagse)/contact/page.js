@@ -1,14 +1,19 @@
  
-import Footar from '../../../components/Footar/Footar';
+import Header from '../../../components/Headar/Header';
 import Heder_info from '../../../helpers/Heder_info';
-import   './contact.css';
+import './contact.css';
+
+export const metadata = {
+  title: "Contact Us | Your Store Shop easily",
+  description: "Get in touch with us for any inquiries or support.",
+};
 
 export default function page() {
   return (
     <>
         
     <div>
- 
+ <Header isContactPage = {true}/>
   <section className="page-add">
     <div className="container">
           {/* sec_top */}
@@ -77,7 +82,7 @@ export default function page() {
 </div>
 
 
-<Footar/>
+ 
 
     </>
   )

@@ -2,14 +2,12 @@
 
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Footart from "../../.././../components/Footar/Footar";
 import Laoding from "../../.././../components/Laoding";
 import ThemeContexttt from "../../../../context/page";
-
 import Link from "next/link";
-
 import { useContext, useEffect } from "react";
 import { useParams } from "next/navigation";
+import Header from "../../../../components/Headar/Header";
 
 // async function getData(id) {
 //   const res = await fetch(`http://localhost:4000/products/${id}`);
@@ -59,6 +57,7 @@ export default function page() {
 
   return (
     <>
+    <Header/>
       {laod ? (
         <Laoding />
       ) : (
@@ -142,7 +141,7 @@ export default function page() {
           </div>
         </div>
       )}
-      <Footart />
+ 
     </>
   );
 }

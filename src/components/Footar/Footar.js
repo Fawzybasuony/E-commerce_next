@@ -99,9 +99,9 @@ export default function Footar() {
           </div>
           <div className="d-inline-block container  w-100 text-center pt-1 text-light">
             <p className="float-md-end ">
-              Copyright © All rights reserved  / 
-              <a href="https://colorlib.com" target="_blank">
-                   Colorlib
+              Fawzy Basuony © All rights reserved  / 
+              <a href="https://www.facebook.com/profile.php?id=100008109043102" target="_blank">
+                   About US
               </a>
             </p>
           </div>

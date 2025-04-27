@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import Laoding from "../../../../components/Laoding";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
+import Header from "../../../../components/Headar/Header";
 
 export default function Page() {
   const params = useParams();
@@ -86,12 +87,14 @@ export default function Page() {
   };
 
   const imageUrl =
-    prodat.mainImage || prodat.mainImage.secure_url
+    prodat.mainImage || prodat.mainImage?.secure_url
       ? prodat.mainImage.secure_url
       : "default-image-url";
 
   return (
     <>
+      <Header />
+
       {laod ? (
         <Laoding />
       ) : (
@@ -147,7 +150,7 @@ export default function Page() {
             </div>
           ) : (
             <button type="submit" className="btn btn-primary">
-              <FontAwesomeIcon icon={faPen} /> Update
+              Update <FontAwesomeIcon icon={faPen} />
             </button>
           )}
         </form>

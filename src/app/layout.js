@@ -6,7 +6,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { ThemeProvider } from "../context/page";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Header from "../components/hedar/header";
+import Footar from "../components/Footar/Footar";
+ 
+ 
  
 
 const inter = Roboto({
@@ -15,7 +17,7 @@ const inter = Roboto({
 });
 
 export const metadata = {
-  title: "Shop easily",
+  title: "Home | Shop easily",
   description: "Your favorite marketYour products are here",
   icons: {
     icon: "/images/bag-shopping-solid.svg",
@@ -27,7 +29,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider>
-        <Header />
+      
 
           {children}
         </ThemeProvider>
@@ -44,6 +46,7 @@ export default function RootLayout({ children }) {
           pauseOnHover
           theme="light"
         />
+        <Footar />
       </body>
     </html>
   );

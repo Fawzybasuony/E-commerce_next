@@ -1,11 +1,17 @@
-import Footar from "../../../components/Footar/Footar";
+ 
 import Heder_info from "../../../helpers/Heder_info";
 import Prices from "./prices";
 import "./Blog.css";
+import Header from "../../../components/Headar/Header";
+export const metadata = {
+  title: "Blog | Your Store Shop easily",
+  description: "Read our latest articles, tips, and news about our products.",
+};
 
 export default function page() {
   return (
     <>
+         <Header isBlogPage={true}/>
       <div>
         <section className="page-add">
           <div className="container">
@@ -126,7 +132,7 @@ export default function page() {
         </section>
       </div>
 
-      <Footar />
+ 
     </>
   );
 }

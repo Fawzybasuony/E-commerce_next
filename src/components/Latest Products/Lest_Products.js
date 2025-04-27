@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./LatestProducts.css";
-
 const products = [
   {
     id: 1,
@@ -8,7 +7,7 @@ const products = [
     image: "/main_lest/(1).jpg",
     link: "/main_lest/(1).jpg",
     status: "new",
-    title: "Green Dress with details",
+    title: "Wireless Noise Cancelling Headphones",
     price: "$22.90",
   },
   {
@@ -17,7 +16,7 @@ const products = [
     image: "/main_lest/(6).jpg",
     link: "/main_lest/(6).jpg",
     status: "sale",
-    title: "Yellow Maxi Dress",
+    title: "Over-Ear Headphones - Premium Sound",
     price: "$25.90",
   },
   {
@@ -26,16 +25,16 @@ const products = [
     image: "/main_lest/8.png",
     link: "/main_lest/8.png",
     status: "popular",
-    title: "One piece bodysuit",
+    title: "Basic White T-Shirt for Everyday Wear",
     price: "$19.90",
   },
   {
     id: 4,
     category: ["All", "headphones"],
     image: "/main_lest/(2).jpg",
-    link: "/images/(2).jpg",
+    link: "/main_lest/(2).jpg",
     status: "popular",
-    title: "Blue Dress with details",
+    title: "Stylish Headphones with Mic",
     price: "$35.50",
   },
   {
@@ -44,16 +43,16 @@ const products = [
     image: "/main_lest/(3).jpg",
     link: "/main_lest/(3).jpg",
     status: "sale",
-    title: "Yellow Maxi Dress",
+    title: "Cotton Printed T-Shirt - Summer Edition",
     price: "$25.90",
   },
   {
     id: 6,
     category: ["All", "T shirts", "Shoes"],
-    image: "/main_lest/(6).jpg",
+    image: "/main_lest/(4).jpg",
     link: "/main_lest/(4).jpg",
     status: "new",
-    title: "One piece bodysuit",
+    title: "Graphic T-Shirt with Stylish Print",
     price: "$19.90",
   },
   {
@@ -62,7 +61,7 @@ const products = [
     image: "/main_lest/(5).jpg",
     link: "/main_lest/(5).jpg",
     status: "popular",
-    title: "Blue Dress with details",
+    title: "Classic White Sneakers for Men",
     price: "$35.50",
   },
   {
@@ -71,7 +70,7 @@ const products = [
     image: "/main_lest/4.webp",
     link: "/main_lest/4.webp",
     status: "new",
-    title: "Green Dress with details",
+    title: "Casual Running Shoes - Lightweight",
     price: "$22.90",
   },
   {
@@ -80,7 +79,7 @@ const products = [
     image: "/main_lest/(5).jpg",
     link: "/main_lest/(5).jpg",
     status: "popular",
-    title: "Blue Dress with details",
+    title: "Wireless Headphones with Deep Bass",
     price: "$35.50",
   },
 ];
