@@ -10,7 +10,7 @@ import Header from "../components/Headar/Header";
 
 export default function Home() {
   const [user, loading, error] = useAuthState(auth);
-
+ 
   if (loading) return (
     <>
       <Header />  

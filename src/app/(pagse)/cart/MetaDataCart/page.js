@@ -11,8 +11,8 @@ export default function page() {
     <>
       {addprodat.map((item) => {
         return (
-          <>
-            <main key={item._id} className="text-center mx-sm-5 my-5 ">
+       
+            <main key={item._id+1} className="text-center mx-sm-5 my-5 ">
               <section className="cart">
                 <article className="d-flex align-items-center justify-content-between mb-4  border rounded shadow-sm">
                   <button
@@ -58,7 +58,7 @@ export default function page() {
                 </article>
               </section>
             </main>
-          </>
+       
         );
       })}
 

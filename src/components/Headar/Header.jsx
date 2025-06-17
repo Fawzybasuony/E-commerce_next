@@ -1,17 +1,13 @@
 "use client";
 import "./Header.css";
 
-import {
-  faCartShopping,
-  faRightToBracket,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import ThemeContexttt from "../../context/page";
 import Header_info from "./Header-info";
-import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../Firebase/Firebaseconfig";
 
 import ModelSigneOut from "./ModelSigneOut";
@@ -138,20 +134,20 @@ export default function Header({
                     </span>
                   </Link>
 
+                  {/* {user.email == "fijotey488@mongrec.com" && */}
+                  <h5 className="pt-2 pe-2 text-secondary fs-6">
+                    Welcome: <span>Admin ♥</span>
+                  </h5>
+                  {/* } */}
+
                   <button
                     onClick={() => {
                       setShowmodel(true);
                     }}
                     className="btn btn-outline-danger text-secondary p-1"
                   >
-                    Sign Out <FontAwesomeIcon icon={faRightToBracket} />
+                    Sign Out
                   </button>
-
-                  {/* {user.email == "fijotey488@mongrec.com" && */}
-                  <h5 className="pt-2 ps-2 text-secondary fs-6">
-                    Welcome: <span>Admin ♥</span>
-                  </h5>
-                  {/* } */}
                 </div>
               </>
             )}
